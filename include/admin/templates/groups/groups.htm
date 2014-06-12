@@ -1,0 +1,141 @@
+<script language="JavaScript" type="text/javascript">
+<!--
+  function change_group ( gid ) {
+		var x = prompt ( "Bitte den neuen Namen der Gruppe eingeben", "" );
+		if ( x ) {
+		  document.location.href="?groups&group_change="+gid+"&group_name="+x;
+		}
+	}
+  function delete_group ( gid ) {
+		var x = confirm ( "Wollen Sie diese Gruppe löschen?", "" );
+		if ( x ) {
+		  document.location.href="admin.php?groups&group_delete="+gid;
+		}
+	}
+  function manageUser (GID) {
+    var Fenster = window.open ('admin.php?groups-addusers-'+ GID, 'adduser', 'status=no,scrollbars=yes,height=400,width=500');
+    Fenster.focus();
+  }
+//-->
+</script>
+
+<legend><h2><i class="fa fa-cube"></i> Groups</h2></legend>
+
+{msg}
+<div class="row">
+<div class="col-md-6" style="border-right: 1px solid #e5e5e5;">
+	<form action="admin.php?groups-{ak}" method="POST" class="form-horizontal" role="form">
+	<input type="hidden" name="gid" value="{gid}">
+
+			<legend>Gruppe</legend>
+
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Name</label>
+    <div class="col-xs-6">
+      <input type="text" name="group_name" value="{name}" class="form-control" placeholder="Name der Gruppe">
+    </div></div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">BIld</label>
+    <div class="col-xs-8">
+<select class="form-control" onchange="sichtbarA()" name="img">{pic}</select>
+<span class="help-block"><small>Einfach ein Bild in den ordner <b>include/images/teams</b> packen und ausw&auml;hlen</small></span>
+</div></div>
+<div class="panel panel-default">
+  <div class="panel-body">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Leader</label>
+    <div class="col-sm-8">
+<select class="form-control" name="mod1">{_list_mods1@<option%1 value="%2">%3</option>}</select>
+<span class="help-block"><small>Bekommt automatisch die Modulrechte: (wars, Groups, Awards, Awaycal)</small></span>
+</div></div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Co-Leader</label>
+    <div class="col-sm-8">
+<select class="form-control" name="mod2">{_list_mods2@<option%1 value="%2">%3</option>}</select>
+<span class="help-block"><small>Bekommt automatisch die Modulrechte: (wars, Groups, Awards, Awaycal)</small></span>
+</div></div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Warorga</label>
+    <div class="col-sm-8">
+<select class="form-control" name="mod3">{_list_mods3@<option%1 value="%2">%3</option>}</select>
+<span class="help-block"><small>Bekommt automatisch die Modulrechte: (wars, Awaycal)</small></span>
+</div></div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Memberorga</label>
+    <div class="col-sm-8">
+<select class="form-control" name="mod4">{_list_mods4@<option%1 value="%2">%3</option>}</select>
+<span class="help-block"><small>Bekommt automatisch die Modulrechte: (Groups, Awaycal)</small></span>
+</div></div>
+</div></div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Joinus</label>
+    <div class="col-sm-8">
+<label class="checkbox-inline">
+<input id="joinusja" type="radio" {joinusja} name="joinus" value="1">  ja
+</label>
+<label class="checkbox-inline">
+<input id="joinusno" type="radio" {joinusno} name="joinus" value="0">  nein
+</label>
+<span class="help-block"><small>Kann diesem Team beigetreten werden?</small></span>
+</div></div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Fightus</label>
+    <div class="col-sm-8">
+<label class="checkbox-inline">
+<input id="fightusja" type="radio" {fightusja} name="fightus" value="1">  ja
+</label>
+<label class="checkbox-inline">
+<input id="fightusno" type="radio" {fightusno} name="fightus" value="0">  nein
+</label>
+<span class="help-block"><small>Darf gegen das Team gespielt werden?</small></span>
+</div></div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Squads</label>
+    <div class="col-sm-8">
+<label class="checkbox-inline">
+<input id="zeigenja" type="radio" {zeigenja} name="zeigen" value="1">  ja
+</label>
+<label class="checkbox-inline">
+<input id="zeigenno" type="radio" {zeigenno} name="zeigen" value="0">  nein
+</label>
+<span class="help-block"><small>Soll das Team unter Squads aufgelistet werden?</small></span>
+</div></div>
+<div class="pull-right">
+<input type="submit" value="Absenden" class="btn btn-primary" name="sub">
+</div>
+		{joinu}
+</div>
+<div class="col-md-6">
+
+<legend>Gruppen &Uuml;bersicht</legend>
+    <table class="table table-bordered">
+		<tr class="active">
+			<td>Name</td>
+			<td>Users</td>
+			<td></td>
+		</tr>
+{EXPLODE}
+		<tr>
+			<td>{name}</td>
+			<td><a href="javascript:manageUser({id})">Users List</a> <span rel="tooltip" title="Anzahl User" class="badge">{useranz}</span</td>
+			<td class="text-center"><a style="margin-right:3px;" href="?groups-edit-{id}" rel="tooltip" title="Gruppe &auml;ndern"><i class="fa fa-pencil"></i></a>
+<a style="margin-right:3px;" href="javascript:delete_group('{id}')" rel="tooltip" title="Gruppe L&ouml;schen"><i class="fa fa-trash-o" style="color:#ff0000;"></i></a>
+<a style="margin-right:3px;" href="?groups-move-o{id}" rel="tooltip" title="Gruppe hochsetzen"><i class="fa fa-long-arrow-up" style="color:#0094FF;"></i></a>
+<a href="?groups-move-u{id}" rel="tooltip" title="Gruppe runtersetzen"><i class="fa fa-long-arrow-down" style="color:#0094FF;"></i></a></td>
+		</tr>
+{EXPLODE}
+		</table>
+{EXPLODE}
+<div class="alert alert-danger">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+<strong>Achtung</strong><br>
+          Volle Rechte in diesem Bereich haben nur Admins und Co-Admins, User mit Modulrechten k&ouml;nnen nur ihre Gruppe betreffende Dinge
+          &auml;ndern, wenn du also etwas nicht &auml;ndern kannst, wende dich an einen Admin.
+          Achte auch darauf, dir nicht selbst die Rechte für deine Gruppe wegzunehmen, sie k&ouml;nnen dir nur von einem Admin oder (Co-)Leader
+          der Gruppe wiedergegeben werden.
+  </div>
+{EXPLODE}
+
+</div></div>
