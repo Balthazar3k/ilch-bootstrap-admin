@@ -18,33 +18,30 @@
   }
 //-->
 </script>
-
-
-{msg}<br><br>
-<a class="btn btn-primary btn-sm" href="admin.php?groups">zur Gruppen&uuml;bersicht</a><br>
-<legend><h2>Joinus Anfragen bearbeiten</h2></legend>
-<div class="row">
-  <div class="col-sm-1"></div>
-  <div class="col-sm-8">
+<legend><h2><i class="fa fa-plus-square-o"></i> Joinus Anfragen</h2></legend>
+<div class="cont_loose">
+{msg}
+<a class="btn btn-primary btn-sm" href="admin.php?groups">zur Gruppen&uuml;bersicht</a><br><br>
 			<legend>Anfragen &Uuml;bersicht</legend>
-<table class="table table table-bordered">
+<table class="table table-bordered">
 <tr class="active">
 			<td>Name</td>
-			<td>E-Mail</td>
+			<td class="visible-xsmin">E-Mail</td>
 			<td>Team</td>
-      <td>Status</td>
+      <td class="visible-xsmin">Status</td>
 			<td>Optionen</td>
 		</tr>
 {EXPLODE}
-		<tr >
+		<tr>
 			<td>{name}</td>
-			<td>{email}</td>
+			<td class="visible-xsmin">{email}</td>
 			<td>{groupname}</td>
-			<td>{status}</td>
+			<td class="visible-xsmin">{status}</td>
 			<td><a href="admin.php?groups-joinus-a{id}-{check}-addtoteam">als Trial aufnehmen</a><br>
 			<a href="admin.php?groups-joinus-a{id}-{check}">als Trial aber nicht ins Team aufnehmen</a><br>
 			<a href="admin.php?groups-joinus-d{id}-{check}">nicht aufnehmen</a></td>
 		</tr>
 {EXPLODE}
 <table>
-</div></div>
+</div>
+
