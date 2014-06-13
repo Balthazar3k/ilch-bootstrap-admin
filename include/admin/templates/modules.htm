@@ -1,0 +1,124 @@
+<style>
+    .input-group-addon, .input-group  > .input-group-btn > .btn{
+        width:  125px;
+        text-align: right;
+    }
+    
+    .input-group, .btn-group{
+        width: 100%;
+        margin-bottom: 3px;
+    }
+</style>
+
+<script>
+  $(document).ready(function() {
+    $('[data-move]').click(function(event){
+        event.preventDefault();
+        var $move = $(this).attr('data-move');
+        var $text = $(this).text();
+        $($move).val($text);
+    });
+    
+    $( "#sortable" ).sortable({
+        cancel: "#category",
+        stop: function(){
+            alert('hallo');
+        }
+    });
+    $( "#sortable" ).disableSelection();
+  });
+</script>
+<div class="col-md-12">
+    <div class="alert alert-warning">
+        Achtung! Das hier sind die Einstellungen vom Adminmen&uuml;
+    </div>
+</div>
+
+<div class="col-md-8">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Liste aller regestrierten Module
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>URL</th>
+                    <th class="text-center">Admin</th>
+                    <th class="text-center">User</th>
+                    <th class="text-center">Rechte</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="sortable">
+                {EXPLODE}<!-- EXPLODE 01 -->
+                <tr id="category" class="info">
+                    <td></td>
+                    <td colspan="6"><b>{kat}</b></td>
+                </tr>
+                {EXPLODE}<!-- EXPLODE 02 -->
+                <tr>
+                    <td><span class="glyphicon glyphicon-sort"></span></td>
+                    <td>{name}</td>
+                    <td>admin.php?{url}</td>
+                    <td class="text-center">{_if_{ashow}=='1'}<span class="glyphicon glyphicon-ok-circle text-success"></span>{_else_}<span class="glyphicon glyphicon-remove-circle text-danger"></span>{/_endif}</td>
+                    <td class="text-center">{_if_{gshow}=='1'}<span class="glyphicon glyphicon-ok-circle text-success"></span>{_else_}<span class="glyphicon glyphicon-remove-circle text-danger"></span>{/_endif}</td>
+                    <td class="text-center">{_if_{fright}=='1'}<span class="glyphicon glyphicon-ok-circle text-success"></span>{_else_}<span class="glyphicon glyphicon-remove-circle text-danger"></span>{/_endif}</td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <a href="" class="btn btn-success"><span class="glyphicon glyphicon-edit"></span></a>
+                            <a href="" class="btn btn-warning"><span class="glyphicon glyphicon-trash"></span></a>
+                        </div>
+                    </td>
+                </tr>
+                {EXPLODE}<!-- EXPLODE 03 -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <form action="admin.php?modules-save-" method="POST">
+        <div class="input-group">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">Kategorie <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    {_list_category@<li><a href="%1" data-move="[name=kat]">%1</a></li>}
+                </ul>
+            </div>
+            <input type="text" name="kat" class="form-control" placeholder="Kategoriename">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">Modulname:</span>
+            <input type="text" class="form-control" placeholder="Modulname">
+        </div>       
+        <div class="input-group">
+            <span class="input-group-addon">Modul URL:</span>
+            <select class="form-control">
+                <option>Ausw&auml;hlen</option>
+                {_list_modules@<option value="%2" %3>%1</option>}
+            </select>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">Rechte:</span>
+            <select class="form-control">
+                <option>Ausw&auml;hlen</option>
+            </select>
+        </div>
+        <div class="btn-group btn-group-justified" data-toggle="buttons">
+            <label class="btn btn-default">
+                <input name="ashow" type="checkbox"> Admin
+            </label>
+            <label class="btn btn-default">
+                <input name="gshow" type="checkbox"> User
+            </label>
+            <label class="btn btn-default">
+                <input name="fright" type="checkbox"> Rechte 
+            </label>
+        </div>
+        <div class="btn-group">
+            <input type="submit" class="btn btn-success" value="Speichern">
+        </div>
+    </form>
+</div>
