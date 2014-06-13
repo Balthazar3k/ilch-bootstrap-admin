@@ -1,0 +1,62 @@
+<script type="text/javascript">
+function checkEmail(){
+	var v = document.forms['newsletter'].elements['auswahl'].value;
+	var e = document.getElementById('cb_html_cont');
+	if (v.match(/^E/)) {
+		e.style.display = '';
+	} else {
+		e.style.display = 'none';
+	}
+}
+</script>
+<legend><h2><i class="fa fa-envelope-o"></i> Newsletter</h2></legend>
+<span class="help-block">Hier kannst du einen Newsletter verschicken!</span><br><br>
+<form action="admin.php?newsletter" method="post" name="newsletter" class="form-horizontal" role="form">
+{antispam}
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-8">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Empf&auml;nger</label>
+    <div class="col-sm-8">
+<label class="checkbox-inline">
+<input type="radio" name="tempRecipients" onClick="xajax_XAJAX_changeList('Normal')"> Normal
+</label>
+<label class="checkbox-inline">
+<input input type="radio" name="tempRecipients" onClick="xajax_XAJAX_changeList('Grundrechte')"> nach Rechten
+</label>
+</div></div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Ausw&auml;hlen</label>
+    <div class="col-sm-8" id="list">
+			    <select class="form-control" name="auswahl">
+                        <option selected="selected" disabled="disabled">Bitte erst den Empf&auml;nger ausw&auml;hlen</option>
+			    </select>
+</div></div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Betreff</label>
+    <div class="col-sm-8">
+<input type="text" class="form-control" name="bet" placeholder="Betreff">
+</div></div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Text</label>
+    <div class="col-sm-8">
+<textarea class="form-control" rows="10" name="txt"></textarea>
+</div></div>
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-6">
+  <div class="form-group" id="cb_html_cont" style="display:none;">
+    <div class="col-sm-8">
+<label class="checkbox-inline">
+<input type="checkbox" name="html" id="cb_html"> E-Mail als HTML senden
+</label>
+</div></div>
+<input type="submit" class="btn btn-primary" value="Absenden" name="SEND" >
+</div></div>
+</form>
+
