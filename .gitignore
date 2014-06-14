@@ -1,3 +1,12 @@
 !include/admin/*
+!include/admin/groups.php
+!include/admin/newsletter.php
+!include/admin/templates/bootstrap/*
+!include/admin/templates/index.htm
+!include/admin/templates/newsletter.htm
+!include/admin/templates/groups/funcs.htm
+!include/admin/templates/groups/groups.htm
+!include/admin/templates/groups/groups.htm
+!include/admin/templates/groups/joinus.htm
 !include/boxes/adminmenu.php
 !include/boxes/adminmenu-neu.php
