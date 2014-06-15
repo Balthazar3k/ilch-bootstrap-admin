@@ -2,6 +2,7 @@
 !include/admin/groups.php
 !include/admin/newsletter.php
 !include/admin/templates/bootstrap/*
+!include/admin/templates/contact.htm
 !include/admin/templates/index.htm
 !include/admin/templates/newsletter.htm
 !include/admin/templates/groups/funcs.htm
