@@ -1,4 +1,8 @@
 <style>
+    body, table {
+        font-size: 14px;
+    }
+    
     .input-group-addon, .input-group  > .input-group-btn > .btn{
         width:  125px;
         text-align: right;
@@ -22,7 +26,12 @@
     $( "#sortable" ).sortable({
         cancel: "#category",
         stop: function(){
-            alert('hallo');
+            var $form = $('form#sort');
+            var action = $form.attr('action');
+            var values = $form.serialize();
+            $.post(action, values, function(data){
+                window.location = window.location;
+            },'html');
         }
     });
     $( "#sortable" ).disableSelection();
@@ -39,47 +48,64 @@
         <div class="panel-heading">
             Liste aller regestrierten Module
         </div>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Name</th>
-                    <th>URL</th>
-                    <th class="text-center">Admin</th>
-                    <th class="text-center">User</th>
-                    <th class="text-center">Rechte</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody id="sortable">
-                {EXPLODE}<!-- EXPLODE 01 -->
-                <tr id="category" class="info">
-                    <td></td>
-                    <td colspan="6"><b>{kat}</b></td>
-                </tr>
-                {EXPLODE}<!-- EXPLODE 02 -->
-                <tr>
-                    <td><span class="glyphicon glyphicon-sort"></span></td>
-                    <td>{name}</td>
-                    <td>admin.php?{url}</td>
-                    <td class="text-center">{_if_{ashow}=='1'}<span class="glyphicon glyphicon-ok-circle text-success"></span>{_else_}<span class="glyphicon glyphicon-remove-circle text-danger"></span>{/_endif}</td>
-                    <td class="text-center">{_if_{gshow}=='1'}<span class="glyphicon glyphicon-ok-circle text-success"></span>{_else_}<span class="glyphicon glyphicon-remove-circle text-danger"></span>{/_endif}</td>
-                    <td class="text-center">{_if_{fright}=='1'}<span class="glyphicon glyphicon-ok-circle text-success"></span>{_else_}<span class="glyphicon glyphicon-remove-circle text-danger"></span>{/_endif}</td>
-                    <td>
-                        <div class="btn-group btn-group-sm">
-                            <a href="" class="btn btn-success"><span class="glyphicon glyphicon-edit"></span></a>
-                            <a href="" class="btn btn-warning"><span class="glyphicon glyphicon-trash"></span></a>
-                        </div>
-                    </td>
-                </tr>
-                {EXPLODE}<!-- EXPLODE 03 -->
-            </tbody>
-        </table>
+        <form id="sort" action="admin.php?modules-sort" method="POST">
+            <table class="table table-striped table-responsive">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Kategorie</th>
+                        <th>Name</th>
+                        <th>URL</th>
+                        <th class="text-center">Admin</th>
+                        <th class="text-center">User</th>
+                        <th class="text-center">Rechte</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="sortable">
+                    {EXPLODE}
+                    <tr id="category" class="warning">
+                        <td></td>
+                        <td><b>{kat}</b></td>
+                        <td colspan="6"></td>
+                    </tr>
+                    {EXPLODE}
+                    <tr>
+                        <td class="text-center">
+                            <b><i class="fa fa-arrows-v"></i> </b>
+                            <input type="hidden" name="sort[]" value="{id}" />
+                        </td>
+                        <td class="text-center info"><b>{kat}</b></td>
+                        <td>{name}</td>
+                        <td><a href="admin.php?{url}" target="_blank">{url}</a></td>
+                        <td class="text-center">{_if_{ashow}=='1'}<i class="fa fa-check-square text-success"></i>{_else_}<i class="fa fa-square text-danger"></i>{/_endif}</td>
+                        <td class="text-center">{_if_{gshow}=='1'}<i class="fa fa-check-square text-success"></i>{_else_}<i class="fa fa-square text-danger"></i>{/_endif}</td>
+                        <td class="text-center">{_if_{fright}=='1'}<i class="fa fa-check-square text-success"></i>{_else_}<i class="fa fa-square text-danger"></i>{/_endif}</td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a href="admin.php?modules-edit-{id}" href="" class="text-success"><i class="fa fa-edit"></i></a>
+                                <a href="admin.php?modules-delete-{id}" class="text-warning"><i class="fa fa-trash-o"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    {EXPLODE}
+                </tbody>
+            </table>
+        </form>
     </div>
 </div>
 
 <div class="col-md-4">
-    <form action="admin.php?modules-save-" method="POST">
+    <form action="admin.php?modules-save-{id}" method="POST">
+        <div class="input-group">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">Modul <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    {_list_modules@<li><a href="%2" data-move="[name=url]">%1</a></li>}
+                </ul>
+            </div>
+            <input type="text" name="url" class="form-control" placeholder="Modulurl" value="{url}">
+        </div>
         <div class="input-group">
             <div class="input-group-btn">
                 <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">Kategorie <span class="caret"></span></button>
@@ -87,34 +113,21 @@
                     {_list_category@<li><a href="%1" data-move="[name=kat]">%1</a></li>}
                 </ul>
             </div>
-            <input type="text" name="kat" class="form-control" placeholder="Kategoriename">
+            <input type="text" name="kat" class="form-control" placeholder="Kategoriename" value="{kat}">
         </div>
         <div class="input-group">
             <span class="input-group-addon">Modulname:</span>
-            <input type="text" class="form-control" placeholder="Modulname">
+            <input type="text" name="name" class="form-control" placeholder="Modulname" value="{name}">
         </div>       
-        <div class="input-group">
-            <span class="input-group-addon">Modul URL:</span>
-            <select class="form-control">
-                <option>Ausw&auml;hlen</option>
-                {_list_modules@<option value="%2" %3>%1</option>}
-            </select>
-        </div>
-        <div class="input-group">
-            <span class="input-group-addon">Rechte:</span>
-            <select class="form-control">
-                <option>Ausw&auml;hlen</option>
-            </select>
-        </div>
         <div class="btn-group btn-group-justified" data-toggle="buttons">
-            <label class="btn btn-default">
-                <input name="ashow" type="checkbox"> Admin
+            <label class="btn btn-default {_if_{ashow}=='1'}active{/_endif}">
+                <input name="ashow" type="checkbox" value="1" {_if_{ashow}=='1'}checked="checked"{/_endif}> Admin
             </label>
-            <label class="btn btn-default">
-                <input name="gshow" type="checkbox"> User
+            <label class="btn btn-default {_if_{gshow}=='1'}active{/_endif}">
+                <input name="gshow" type="checkbox" value="1" {_if_{gshow}=='1'}checked="checked"{/_endif}> User
             </label>
-            <label class="btn btn-default">
-                <input name="fright" type="checkbox"> Rechte 
+            <label class="btn btn-default {_if_{fright}=='1'}active{/_endif}">
+                <input name="fright" type="checkbox" value="1" {_if_{fright}=='1'}checked="checked"{/_endif}> Rechte 
             </label>
         </div>
         <div class="btn-group">
