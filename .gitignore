@@ -10,6 +10,6 @@
 !include/admin/templates/newsletter.htm
 !include/admin/templates/groups/funcs.htm
 !include/admin/templates/groups/groups.htm
-!include/admin/templates/groups/groups.htm
+!include/admin/templates/groups/users.htm
 !include/admin/templates/groups/joinus.htm
 !include/boxes/adminmenu.php
