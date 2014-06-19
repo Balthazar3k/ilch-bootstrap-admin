@@ -158,7 +158,7 @@ if ( $um == 'addusers' ) {
   }
 
   function group_func ($gid, $uid, $fid, $gf) {
-    $out = '<select id="user'.$uid.'" onchange="change_user('.$gid.', '.$uid.', this.value, '.$fid.', \'user'.$uid.'\');">';
+    $out = '<select class="form-control" id="user'.$uid.'" onchange="change_user('.$gid.', '.$uid.', this.value, '.$fid.', \'user'.$uid.'\');">';
     foreach ($gf as $key => $val) {
       $out .=  '<option value="'.$key.'" '.($fid == $key ? 'selected="selected"' : '').'>'.$val.'</option>';
     }
