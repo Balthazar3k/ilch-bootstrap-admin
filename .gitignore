@@ -12,4 +12,5 @@
 !include/admin/templates/groups/groups.htm
 !include/admin/templates/groups/users.htm
 !include/admin/templates/groups/joinus.htm
+!include/admin/templates/puser.htm
 !include/boxes/adminmenu.php
