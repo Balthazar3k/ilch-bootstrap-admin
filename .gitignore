@@ -3,6 +3,7 @@
 !include/admin/newsletter.php
 !include/admin/modules.php
 !include/admin/templates/bootstrap/*
+!include/admin/templates/user/*
 !include/admin/templates/bootstrap/css/ilch_label.png
 !include/admin/templates/awards.htm
 !include/admin/templates/contact.htm
