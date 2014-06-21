@@ -1,4 +1,4 @@
-<a class="btn btn-primary btn-sm" href="admin.php?user"><i class="fa fa-reply"></i> Zur&uuml;ck zur Benutzerverwaltung</a><br><br>
+<a class="btn btn-primary btn-sm" href="admin.php?user"><i class="fa fa-reply"></i> Benutzerverwaltung</a><br><br>
 <div class="panel panel-default">
   <div class="panel-heading"><i class="fa fa-chevron-down"></i> Benutzer, die ihre Registrierung oder &Auml;nderungen noch nicht best&auml;tigt haben</div>
   <div class="panel-body">
@@ -13,12 +13,12 @@
 <tr>
   <td class="hidden-xs"><span class="badge">{c}</span></td>
   <td class="text-center">{name}</td>
-<td class="text-center"><div class="btn-group">
-  <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="<a href='mailto:{email}'>{email}</a>">E-Mail</button>
-  <button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="top" data-content="<i class='fa fa-clock-o'></i> {time}">Zeit</button>
-  <button type="button" class="btn btn-warning" data-container="body" data-toggle="popover" data-placement="top" data-content="{aktion}">Grund</button>
-  <button type="button" class="btn btn-success" data-container="body" data-toggle="popover" data-placement="top" data-content="index.php?user-confirm&check= {check}">Aktiv. Link</button>
-</div>
+<td class="text-center">
+  <button type="button" style="margin-bottom:2px;" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="<a href='mailto:{email}'>{email}</a>">E-Mail</button>
+  <button type="button" style="margin-bottom:2px;" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="top" data-content="<i class='fa fa-clock-o'></i> {time}">Zeit</button>
+  <button type="button" style="margin-bottom:2px;" class="btn btn-warning" data-container="body" data-toggle="popover" data-placement="top" data-content="{aktion}">Grund</button>
+  <button type="button" style="margin-bottom:2px;" class="btn btn-success" data-container="body" data-toggle="popover" data-placement="top" data-content="index.php?user-confirm&check= {check}">Aktiv. Link</button>
+
 </td>
   <td class="text-right"><a style="margin-right:3px;" rel="tooltip" title="&uuml;bernehmen"  href="admin.php?puser-confirm&check={check}"><i style="color:#00BC16;" class="fa fa-check-square-o"></i></a>
  <a rel="tooltip" title="l&ouml;schen" href="admin.php?puser-del&check={check}"><i style="color:#ff0000;" class="fa fa-trash-o"></i></a></td>
