@@ -3,6 +3,9 @@
 !include/admin/newsletter.php
 !include/admin/modules.php
 !include/admin/templates/bootstrap/*
+!include/admin/templates/user/*
+!include/admin/templates/bootstrap/css/ilch_label.png
+!include/admin/templates/awards.htm
 !include/admin/templates/contact.htm
 !include/admin/templates/index.htm
 !include/admin/templates/navbar.htm
@@ -12,5 +15,4 @@
 !include/admin/templates/groups/groups.htm
 !include/admin/templates/groups/users.htm
 !include/admin/templates/groups/joinus.htm
-!include/admin/templates/puser.htm
 !include/boxes/adminmenu.php

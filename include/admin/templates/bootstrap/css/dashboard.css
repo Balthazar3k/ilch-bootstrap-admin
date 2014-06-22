@@ -8,7 +8,7 @@ body {
   padding-top: 40px;
   overflow-x: hidden; /* Prevent scroll on narrow devices */
 }
-@media (max-width: 768px) {
+@media (max-width: 801px) {
 html,
 body {
   padding-top: 23px;
@@ -35,7 +35,7 @@ right:20px;
 bottom:20px;
 z-index:1002;
 }
-@media (max-width: 800px) {
+@media (max-width: 801px) {
 .ilch_label {display: none;}
 }
 /*
@@ -46,7 +46,7 @@ z-index:1002;
 .sidebar {
   display: none;
 }
-@media (min-width: 768px) {
+@media (min-width: 801px) {
   .sidebar {
     position: fixed;
     top: 51px;
@@ -84,9 +84,9 @@ z-index:1002;
 
 .main {
   padding: 20px;
-min-height:550px;
+min-height:1100px;
 }
-@media (min-width: 768px) {
+@media (min-width: 801px) {
   .main {
     padding-right: 40px;
     padding-left: 40px;
