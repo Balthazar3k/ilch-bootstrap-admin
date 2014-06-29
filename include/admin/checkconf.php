@@ -84,14 +84,14 @@ if($menu->get(1) == "phpinfo"){
 
     $tpl->set_out('head','Informationen', 1);
     $infos = array(
-          'Serversoftware'=>$_SERVER["SERVER_SOFTWARE"],
+          'Server Software'=>$_SERVER["SERVER_SOFTWARE"],
           'Server (PHP) Zeit'=>date('Y-m-d H:i:s'),
           'SQL Zeit'=>db_result(db_query("SELECT NOW()")),
-          'MySQL-Version'=>db_result(db_query("SELECT VERSION()")),
-          'Datenbankgr&ouml;&szlig;e'=>nicebytes($dbsize),
-          'Avatarordnergr&ouml;&szlig;e'=>nicebytes(dirsize('include/images/avatars/')),
-          'Galleryordnergr&ouml;&szlig;e'=>nicebytes(dirsize('include/images/gallery/')),
-          'Usergalleryordnergr&ouml;&szlig;e'=>nicebytes(dirsize('include/images/usergallery/'))
+          'MySQL Version'=>db_result(db_query("SELECT VERSION()")),
+          'Datenbank Gr&ouml;&szlig;e'=>nicebytes($dbsize),
+          'Avatarordner Gr&ouml;&szlig;e'=>nicebytes(dirsize('include/images/avatars/')),
+          'Galleryordner Gr&ouml;&szlig;e'=>nicebytes(dirsize('include/images/gallery/')),
+          'Usergalleryordner Gr&ouml;&szlig;e'=>nicebytes(dirsize('include/images/usergallery/'))
     );
     foreach($infos as $k => $str){
         if ($class == 'Cmite') { $class = 'Cnorm'; } else { $class = 'Cmite'; }
