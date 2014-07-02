@@ -3,9 +3,11 @@
 .border_right_ilch {border-right: 1px solid #e5e5e5;}
 .cont_loose {width: 80%;}
 .visible-xsmin-in {display:none;}
+.visible-xs-800 {display:none;}
 @media (max-width: 801px) {
 .border_right_ilch {border-right:none;}
 .cont_loose {width: 100%;}
+.visible-xs-800 {display:inline;}
 }
 @media (max-width: 480px) {
 .visible-xsmin {display:none;}
