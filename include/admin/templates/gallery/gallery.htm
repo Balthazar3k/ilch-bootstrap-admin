@@ -1,0 +1,126 @@
+<legend><h2><i class="fa fa-picture-o"></i> Gallery</h2></legend>
+<form action="admin.php?gallery" method="POST" class="form-horizontal" role="form">
+<div class="row">
+  <div class="col-md-6">
+<div class="panel panel-default">
+  <div class="panel-body bg-warning">
+        {EXPLODE}
+<ul class="media-list">
+<div class="media">
+  <a class="pull-left" href="#">
+    <img class="media-object img-thumbnail" alt="{datei_name}" src="include/images/gallery/img_thumb_{id}.{endung}" style="max-width:90px;">
+  </a>
+  <div class="media-body" style="vertical-align: middle;">
+    <h4 class="media-heading">{datei_name}</h4>
+    <small>{besch}</small><br>
+<a style="margin-right:5px;" href="javascript:del({id})" rel="tooltip" title="l&ouml;schen"><i style="color:#A80000;" class="fa fa-trash-o"></i></a>
+<a style="margin-right:5px;" href="javascript:edit('{besch}',{id})" rel="tooltip" title="&auml;ndern"><i style="color:#298900;" class="fa fa-pencil-square-o"></i></a>
+<a style="margin-right:5px;" href="javascript:reload({id})" rel="tooltip" title="Bild erneuern"><i style="color:#963C00;" class="fa fa-refresh"></i></a>
+<input type="checkbox" name="img[]" value="{id}" style="margin:0px; padding: 0px;" rel="tooltip" title="Bild f&uuml;r Verschieben markieren">
+  </div>
+</div></ul>
+{EXPLODE}
+</div></div>
+</div>
+  <div class="col-md-6">
+<div class="panel panel-default">
+  <div class="panel-body">
+<table class="table table-striped">
+  <tr class="warning">
+		<td colspan="9"><b>Kategorien</b></td>
+  </tr><tr>
+    <td><a href="?gallery-S0">Keine</a></td>
+    <td><a href="javascript:uploadImages(0)" rel="tooltip" title="Bilder in diese Kategorie hochladen"><i class="fa fa-upload"></i></a></td>
+    <td><a href="javascript:reloadImages(0)" rel="tooltip" title="Bilder in diese Kategorie erneuern"><i style="color:#963C00;" class="fa fa-refresh"></i></td>
+    <td></td>
+  </tr>{EXPLODE}
+</table>
+</div></div>
+		<legend>Bilder verschieben</legend>
+<div class="form-group">
+    <label class="col-sm-2 control-label">nach:</label>
+    <div class="col-xs-6">
+<select class="form-control" name="movecat">{Ccat}</select>
+    </div>
+  </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label"></label>
+    <div class="col-sm-10">
+<input type="submit"  class="btn btn-primary" value="markierte Bilder verschieben" name="movepics" >
+    </div>
+  </div>
+	<input type="hidden" name="Cpkey" value="{Cpkey}">
+<legend>Gallery Kategorien</legend>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">Kategorie</label>
+    <div class="col-xs-6">
+      <select class="form-control" name="Ccat">{Ccat}</select>
+    </div>
+  </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Sichbar ab</label>
+    <div class="col-xs-6">
+      <select class="form-control" name="Crecht">{Crecht}</select>
+    </div>
+  </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Name</label>
+    <div class="col-xs-6">
+      <input type="text" class="form-control" name="Cname" value="{Cname}">
+    </div>
+  </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Beschreibung</label>
+    <div class="col-sm-10">
+      <textarea  class="form-control" rows="3" name="Cdesc">{Cdesc}</textarea>
+    </div>
+  </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label"></label>
+    <div class="col-sm-10">
+      <input class="btn btn-primary" type="submit" value="Absenden" name="Csub" />
+    </div>
+  </div>
+</form>
+
+
+</div></div>
+<script language="JavaScript" type="text/javascript">
+<!--
+
+  function Kdel ( id1 ) {
+    var Fenster = window.open ('admin.php?gallery-D' + id1, 'delKat', 'status=yes,scrollbars=yes,height=400,width=550,left=300,top=50');
+    Fenster.focus();
+  }
+  function del ( id1 ) {
+    var x = confirm ( "Dieses Bild wirklich löschen?" );
+		if ( x ) {
+		  document.location.href="?gallery-d"+id1;
+		}
+	}
+  function edit ( besch, id1 ) {
+    var x = prompt ( "Bitte die neue Beschreibung eingeben!", besch);
+    if ( x ) {
+      document.location.href="?gallery-e"+id1+"=0&besch=" + x;
+    }
+  }
+  function reload ( id1 ) {
+    var x = confirm ( "Dieses Bild wirklich erneuern?" );
+    if ( x ) {
+      document.location.href="?gallery-r"+id1;
+    }
+  }
+  function reloadImages (kid) {
+    var Fenster = window.open ('admin.php?gallery-reloadImages-' + kid, 'reloadImages', 'status=yes,scrollbars=yes,height=500,width=500,left=300,top=50');
+    Fenster.focus();
+  }
+  function uploadImages (kid) {
+    var x = prompt ( "Wie viele Bilder möchten Sie hochladen?", "5");
+    if ( x ) {
+      var Fenster = window.open ('admin.php?gallery-uploadImages-' + kid + '=0&anzb=' + x, 'uploadImages', 'status=yes,scrollbars=yes,height=500,width=500,left=300,top=50');
+      Fenster.focus();
+    }
+  }
+//-->
+</script>
