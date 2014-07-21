@@ -1,13 +1,13 @@
 <script language="JavaScript" type="text/javascript"><!--
 function delcheck ( DELID ) {
-	var frage = confirm ( "Willst du diesen Eintrag wirklich l�schen?" );
+	var frage = confirm ( "Willst du diesen Eintrag wirklich l&ouml;schen?" );
 	if ( frage == true ) {
 	  document.location.href="?news-del-"+DELID;
 	}
 }
 
 function delKcheck ( DELID , NID) {
-	var frage = confirm ( "Willst du dieses Kommentar wirklich l�schen?" );
+	var frage = confirm ( "Willst du dieses Kommentar wirklich l&ouml;schen?" );
 	if ( frage == true ) {
 	  document.location.href="?news-sKoms-"+NID+"-Kdel-"+DELID+"#"+NID;
 	}
@@ -54,7 +54,7 @@ function sichtbar(){
       <!-- BB Code ENDE -->
       </td>
 </tr><tr>
-      <td width="20%">{SMILIS}</td>
+      <td width="20%" class="visible-xsmin">{SMILIS}</td>
       <td ><textarea name="txt" class="form-control" rows="15" tabindex="2">{txt}</textarea></td>
     </tr></table>
 </div>
