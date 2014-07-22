@@ -1,0 +1,114 @@
+<script language="JavaScript" type="text/javascript" src="include/includes/js/editor/whizzywig.js"></script>
+<script language="JavaScript" type="text/javascript" src="include/includes/js/editor/deutsch.js"></script>
+
+<form name="form" action="admin.php?selfbp" method="post" onsubmit="return checkfilename();" role="form">
+<input type="hidden" name="wysiwyg" value="{wysiwyg}" /><input type="hidden" name="toggle" value="0" />
+<legend><h2><i class="fa fa-star-o"></i> Eigene Seite / Box erstellen</h2></legend>
+  <div class="cont_loose">
+ <div class="form-group">
+    <label>Aktion w&auml;hlen</label>
+    <select class="form-control" id="akl" name="akl" onChange="changeAktion()">{akl}</select>
+  </div>
+ <div class="form-group">
+    <label>Dateiname</label>
+    <input type="hidden" class="form-control" name="exfilename" value="{exfilename}" ><input class="form-control" id="filename" name="filename" size="50" value="{filename}" onchange="showToggleBtn();" >
+  </div>
+ <div class="form-group">
+    <label>Titel</label>
+    <input name="title" class="form-control" value="{title}" >
+  </div>
+ <div class="form-group">
+    <label>Hmenu</label>
+    <input name="hmenu" class="form-control" value="{hmenu}" >
+  </div>
+ <div class="form-group form-inline">
+    <label>Anzeige</label>
+    <select style="margin-right:5px;" class="form-control" name="view">{view}</select><input  class="form-control" name="viewoptions" size="50" value="{viewoptions}" >
+  </div>
+ <div class="form-group">
+    <label></label>
+    <textarea rows="9" class="form-control" name="bbwy" id="bbwy">{text}</textarea>{wysiwyg_editor}
+  </div>
+
+ <div class="form-group">
+    <label></label>
+<div class="btn-toolbar" role="toolbar">
+<div class="btn-group">
+    <input class="btn btn-primary btn-sm" type="submit" name="submit_form" value="Speichern">
+    <input class="btn btn-danger btn-sm" type="button" value="Löschen" onclick="confirmDel()"></div>
+    <input class="btn btn-info btn-sm" type="button" value="Toggle WYSIWYG" name="toggleBtn" onclick="toggleWYSIWYG();" style="display:none;">
+</div></div>
+</form>
+
+<div class="alert alert-warning" role="alert"><h3><i class="fa fa-exclamation"></i> Hilfe</h3>
+<p><strong>Dateiname : </strong>Unter diesem Namen wird die Datei gespeichert und kann sie auch in der Navigation wiedergefunden werden.Unbedingt auch <strong>4.</strong> Punkt beachten!</p>
+  </a>
+<p><strong>Titel : </strong>Wird oben in der Programmleiste angezeigt</p>
+<p><strong>Hmenu : </strong>Wird unter dem Banner angezeigt [Design abhängig]</p>
+<p><strong>Anzeige : </strong>Hier kann man auswählen, ob die Seite ganz <u>normal</u>, <u>Vollbild</u> (, also ohne Men&uuml;,)
+            oder in einem <u>neuen Fenster</u> angezeigt werden soll. <br>Für ein neues Fenster kann man die <u>Fenster Eigenschaften</u> noch in dem Eingabefeld dahinter festlegen. Bsp.:<br>
+            <kbd>menubar=yes, toolbar=yes, status=yes, scrollbars=yes, resizable=yes, top=50, left=300, height=500, width=350</kbd></p><br>
+<h4>Wie binde ich denn so eine eigene Page in das Men&uuml; ein?</h4>
+<p>Einfach auf Navigation Klicken und den Namen ausw&auml;hlen (er f&auml;ngt mit 'selfp_' an).</p><br>
+<h4>Und eigene Boxen?</h4>
+<p>Auch sehr einfach. Auf Navigation klicken und den Namen ausw&auml;hlen (er f&auml;ngt mit 'selfb_' an).</p><br>
+<h4><i class="fa fa-exclamation-triangle"></i> Wichtig!</h4>
+<p>Folgendes bitte beachten. Die Dateiamen m&uuml;ssen unterschiedlich sein!
+        Wenn Sie einen gleichen Namen verwenden, wird die schon bestehende Datei
+        einfach &uuml;berschrieben!
+        </p><p>
+        Ausserdem darf der Name einer neuen Seite nicht schon im include/contents
+        Ordner liegen, sonst kann die neue eigene Seite nicht angezeigt werden!
+        Bei eigenen Boxen ist dies egal, dort darf der Name im include/boxes
+        Ordner nicht schon vorhanden sein.
+        </p><p>
+        Bitte im Namen keine Sonderzeichen verwenden. Beschr&auml;nken Sie sich auf
+        die Buchstaben A-Z und a-z und auf die Zahlen 0-9 ...
+        </p><p>
+        Bitte unbedingt diese drei Punkte beachten, andernfalls kann es zu Datenverlust
+        oder sonstigem unerw&uuml;nschtem Verhalten kommen.</p><br>
+<h4>Toggle WYSIWYG</h4>
+<p>Da der verwendete Editor bei komplexeren HTML Elementen wie iframes oder eingef&uuml;gten Videos einfach Sachen herausl&ouml;scht,
+            was zur Folge hat, dass die Elemente nicht funktionieren, kann man den Editor auch deaktivieren. In dem Modus kann man HTML eingeben,
+            ohne dass daran &Auml;nderungen vorgenommen werden.</p><p>
+            Ist erst nach Eingabe eines Namens verf&uuml;gbar, da beim Toggeln gespeichert wird.</p>
+</div>
+</div>
+<script type="text/javascript">
+function changeAktion () {
+  var akl = document.getElementById('akl').value;
+  document.location.href="?selfbp=0&akl=" + akl;
+}
+function confirmDel(){
+  var akl = document.getElementById('akl').value;
+	var frage = confirm ( "Willst du " + akl.substr(1) + " wirklich löschen?" );
+	if ( frage == true ) {
+    document.location.href="?selfbp=0&del=" + akl;
+  }
+}
+function checkfilename () {
+  var filename = document.getElementById('filename');
+  if (filename.value != '') {
+    return (true);
+  }
+
+  alert ('Bitte einen Dateinamen eingeben.');
+  filename.style.backgroundColor="yellow";
+  filename.focus();
+  return (false);
+}
+function toggleWYSIWYG(){
+    document.forms['form'].wysiwyg.value = document.forms['form'].wysiwyg.value == 1 ? 0 : 1;
+    document.forms['form'].toggle.value = 1;
+    document.forms['form'].action = window.location;
+    document.forms['form'].submit();
+}
+function showToggleBtn(){
+    if (document.forms['form'].filename.value.length > 0) {
+        document.forms['form'].toggleBtn.style.display = '';
+    } else {
+        document.forms['form'].toggleBtn.style.display = 'none';
+    }
+}
+showToggleBtn();
+</script>

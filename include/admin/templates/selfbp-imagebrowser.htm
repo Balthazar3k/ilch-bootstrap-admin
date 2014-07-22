@@ -1,0 +1,36 @@
+    <link href="include/admin/templates/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="include/admin/templates/bootstrap/css/dashboard.css" rel="stylesheet">
+    <link href="include/admin/templates/bootstrap/css/offcanvas.css" rel="stylesheet">
+    <link href="include/admin/templates/bootstrap/css/style.css" rel="stylesheet">
+    <link href="include/admin/templates/bootstrap/font-awesome/css/font-awesome.css" rel="stylesheet">
+<script type="text/javascript">
+function put(url) {
+ window.opener.document.getElementById('if_urlbbwy').value = url;
+ window.close();
+}
+</script>
+<table class="table">
+  <tr>
+    <td>
+<table>
+  <tr>
+    <td colspan="2" style="margin-bottom:4px;"><h4>Gallery-Bild w&auml;hlen</h4></td>
+  </tr><tr>
+		<td>
+    <table>
+    <tr><td>- <a href="admin.php?selfbp-imagebrowser-0">Keine</a></td></tr>
+    {EXPLODE}
+    </table>
+    </td>
+    <td>
+    <table>
+    {EXPLODE}
+       <td style="padding-left:5px;"><a class="thumbnail" href="javascript:put('{toput}')"><img src="{pfad}" border="0" /></a></td>
+    {EXPLODE}
+    </table>
+    </td>
+	</tr>
+</table>
+    </td>
+  </tr>
+</table>
