@@ -102,11 +102,11 @@ function archiv_links_admin_showcats ( $id , $stufe ) {
 	$erg = db_query($q);
 	if ( db_num_rows($erg) > 0 ) {
  	  while ($row = db_fetch_object($erg) ) {
-	    echo '<tr><td>'.$stufe.'- <a href="admin.php?archiv-links-S'.$row->id.'">'.$row->name.'</a></td>';
-      echo '<td align="center"><a href="?archiv-links-E'.$row->id.'#edit"><img src="include/images/icons/edit.gif" border="0"></a></td>';
-      echo '<td align="center"><a href="javascript:Kdel('.$row->id.')"><img src="include/images/icons/del.gif" border="0"></a></td>';
-      echo '<td align="center"><a href="admin.php?archiv-links-S'.$row->id.'-O'.$row->id.'-'.$row->pos.'-'.$row->cat.'"><img src="include/images/icons/pfeilo.gif" border="0"></a></td>';
-      echo '<td align="center"><a href="admin.php?archiv-links-S'.$row->id.'-U'.$row->id.'-'.$row->pos.'-'.$row->cat.'"><img src="include/images/icons/pfeilu.gif" border="0"></a></td></tr>';
+	    echo '<tr><td><a href="admin.php?archiv-links-S'.$row->id.'"><strong>'.$row->name.'</strong></a></td>';
+echo '<td class="text-right" nowrap><a style="margin-right:4px;" href="?archiv-links-E'.$row->id.'#edit" rel="tooltip" title="&auml;ndern"><i style="color:#2D9600;" class="fa fa-pencil-square-o"></i></a>
+<a style="margin-right:4px;" href="javascript:Kdel('.$row->id.')" rel="tooltip" title="l&ouml;schen"><i style="color:#AD0000;" class="fa fa-trash-o"></i></a>
+<a style="margin-right:4px;" href="admin.php?archiv-links-S'.$row->id.'-O'.$row->id.'-'.$row->pos.'-'.$row->cat.'" rel="tooltip" title="nach oben verschieben"><i style="color:#C64F00;" class="fa fa-long-arrow-up"></i></a>
+<a href="admin.php?archiv-links-S'.$row->id.'-U'.$row->id.'-'.$row->pos.'-'.$row->cat.'" rel="tooltip" title="nach unten verschieben"><i style="color:#C64F00;" class="fa fa-long-arrow-down"></i></a></td></tr>';
 		  archiv_links_admin_showcats($row->id, $stufe.' &nbsp; &nbsp;' );
 	  }
 	}

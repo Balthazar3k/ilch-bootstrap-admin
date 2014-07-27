@@ -1,0 +1,64 @@
+<legend><h2><i class="fa fa-link"></i> Partner</h2></legend>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+  function del ( id1 ) {
+	
+    var x = confirm ( "do you really want to delete?" );
+		if ( x ) {
+		  document.location.href="?archiv-partners-d"+id1;
+		}
+	}
+//-->
+</script>
+<div class="cont_loose">		
+<form action="admin.php?archiv-partners" method="POST" class="form-horizontal" role="form">
+	<input type="hidden" name="pkey" value="{pkey}">
+	
+<legend>Partner eintragen / &auml;ndern</legend>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-6">
+      <input class="form-control" type="text" name="name" value="{name}">
+    </div>
+  </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Banner</label>
+    <div class="col-sm-6">
+      <input class="form-control" type="text" name="banner" value="{banner}">
+    </div>
+  </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Link</label>
+    <div class="col-sm-6">
+      <input class="form-control" type="text" name="link" value="{link}">
+    </div>
+  </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label"></label>
+    <div class="col-sm-10">
+      <input class="btn btn-primary" type="submit" value="Absenden" name="sub" >
+    </div>
+  </div>
+</form>
+
+<div class="panel panel-default">
+<div class="panel-heading">eingetragene Partner</div>
+  <div class="panel-body">
+<table class="table table-striped">
+  <tr>
+	</tr>
+{EXPLODE}
+  <tr>
+		<td>{name}</td>
+		<td class="text-right" nowrap><a style="margin-right:4px;" href="?archiv-partners-e{id}" rel="tooltip" title="&auml;ndern"><i style="color:#2D9600;" class="fa fa-pencil-square-o"></i></a>
+<a style="margin-right:4px;" href="javascript:del('{id}')" rel="tooltip" title="l&ouml;schen"><i style="color:#AD0000;" class="fa fa-trash-o"></i></a>
+<a style="margin-right:4px;" href="?archiv-partners-o{id}-{pos}" rel="tooltip" title="nach oben verschieben"><i style="color:#C64F00;" class="fa fa-long-arrow-up"></i></a>
+<a href="?archiv-partners-u{id}-{pos}" rel="tooltip" title="nach unten verschieben"><i style="color:#C64F00;" class="fa fa-long-arrow-down"></i></td>
+	</tr>
+{EXPLODE}
+</table>
+{MPL}
+
+</div></div>
+</div>

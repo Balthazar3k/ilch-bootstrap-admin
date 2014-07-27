@@ -1,0 +1,140 @@
+<legend><h2><i class="fa fa-link"></i> Links</h2></legend>
+<div class="row">
+  <div class="col-md-6">
+
+<div class="panel panel-default">
+  <div class="panel-heading">Eingetragene Links</div>
+  <div class="panel-body">
+<table class="table">
+  <tr class="warning">
+		<td colspan="2">Name</td>
+	</tr>
+{EXPLODE}
+  <tr class="{class}">
+	  <td><strong>{name}</strong></td>
+		<td class="text-right" nowrap><a style="margin-right:4px;" href="?archiv-links-e{id}" rel="tooltip" title="&auml;ndern"><i style="color:#2D9600;" class="fa fa-pencil-square-o"></i></a>
+<a style="margin-right:4px;" href="javascript:del('{id}')" rel="tooltip" title="l&ouml;schen"><i style="color:#AD0000;" class="fa fa-trash-o"></i></a>
+<a style="margin-right:4px;" href="?archiv-links-S{cat}-o{id}-{pos}" rel="tooltip" title="nach oben verschieben"><i style="color:#C64F00;" class="fa fa-long-arrow-up"></i></a>
+<a href="?archiv-links-S{cat}-u{id}-{pos}" rel="tooltip" title="nach unten verschieben"><i style="color:#C64F00;" class="fa fa-long-arrow-down"></i></a></td>
+	</tr>
+{EXPLODE}
+</table>
+</div></div>
+
+</div>
+  <div class="col-md-6">
+		<legend>Kategorien</legend>
+<table class="table">
+  <tr>
+    <td><a href="?archiv-links-S0">Keine</a></td>
+    <td class="text-right" nowrap></td>
+  </tr>{EXPLODE}
+</table>
+
+
+<form action="admin.php?archiv-links" method="POST" name="form" class="form-horizontal" role="form">
+	<input type="hidden" name="pkey" value="{pkey}">
+
+<legend>Links<small style="float:right;font-size:10px;">erstellen / &auml;ndern</small></legend>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="name" value="{name}">
+    </div>
+  </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Kategorie</label>
+    <div class="col-sm-6">
+      <select class="form-control" name="cat">{cat}</select>
+    </div>
+  </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Banner</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="banner" value="{banner}">
+    </div>
+  </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Link</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="link" value="{link}">
+    </div>
+  </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Text</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" rows="2" name="desc">{desc}</textarea>
+    </div>
+  </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label"></label>
+    <div class="col-sm-10">
+      <input class="btn btn-primary" type="submit" value="Absenden" name="sub">
+    </div>
+  </div>
+</form>
+
+
+<form action="admin.php?archiv-links" method="POST" class="form-horizontal" role="form">
+	<input type="hidden" name="Cpkey" value="{Cpkey}">
+
+<legend>Link Kategorien<small style="float:right;font-size:10px;">erstellen / &auml;ndern</small></legend>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">Kategorie</label>
+    <div class="col-sm-6">
+      <select class="form-control" name="Ccat">{Ccat}</select>
+    </div>
+  </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="Cname" value="{Cname}">
+    </div>
+  </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Text</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" rows="3" name="Cdesc">{Cdesc}</textarea>
+    </div>
+  </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label"></label>
+    <div class="col-sm-10">
+      <input class="btn btn-primary" type="submit" value="Absenden" name="Csub">
+    </div>
+  </div>
+</form>
+</div></div>
+<script language="JavaScript" type="text/javascript">
+<!--
+  
+  function Kdel ( id1 ) {
+	
+    var x = confirm ( "do you really want to delete?" );
+		if ( x ) {
+		  document.location.href="?archiv-links-D"+id1;
+		}
+	}
+  function del ( id1 ) {
+    var x = confirm ( "do you really want to delete?" );
+		if ( x ) {
+		  document.location.href="?archiv-links-d"+id1;
+		}
+	}
+  function sichtbarA() {
+	  if(document.form.url.value=="neu"){
+		  document.form.newurl.style.visibility="visible";
+		} else {
+		  document.form.newurl.style.visibility="hidden";
+		}
+  }
+	sichtbarA();
+  
+//-->
+</script>
+<div class="alert alert-info" role="alert">
+Hier k&ouml;nnen Sie Links eintragen und Verwalten. Ausserdem k&ouml;nnen Sie hier die Kategorien der Links verwalten.
+Es werden alle Links einer Kategorie angezeigt, um Links einer Kategorie an zu zeigen bitte einfach Links auf den Namen der Kategorie klicken.
+</div>
