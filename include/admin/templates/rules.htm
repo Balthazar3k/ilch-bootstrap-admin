@@ -1,0 +1,65 @@
+<script language="JavaScript" type="text/javascript">
+<!--
+  function del ( id1 ) {
+	
+    var x = confirm ( "wirklich loeschen?" );
+		if ( x ) {
+		  document.location.href="admin.php?rules&delete="+id1;
+		}
+	}
+//-->
+</script>
+
+<legend><h2>Regeln</h2></legend>
+<div class="row">
+  <div class="col-md-6">
+<form action="admin.php?rules" method="POST" class="form-horizontal" role="form">
+<input type="hidden" name="sid" value="{sid}">
+
+ <div class="form-group">
+    <label class="col-sm-2 control-label">Paragraf</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" name="zahl" value="{zahl}">
+    </div>
+  </div>
+ <div class="form-group">
+    <label class="col-sm-2 control-label">Titel</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" name="titel" value="{titel}">
+    </div>
+  </div>
+ <div class="form-group">
+    <label class="col-sm-2 control-label">Text</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" rows="3" name="text">{text}</textarea>
+    </div>
+  </div>
+ <div class="form-group">
+    <label class="col-sm-2 control-label"></label>
+    <div class="col-sm-6">
+      <input class="btn btn-primary" type="submit" value="{sub}" name="sub">
+    </div>
+  </div>
+</form>
+
+</div><div class="col-md-6">
+<span class="visible-xs-800"><legend>Eintragene Paragrafen</legend></span>
+<div class="panel panel-default">
+  <div class="panel-body">
+<table class="table table-striped">
+  <tr>
+		<td><strong>Paragraf</strong></td>
+		<td><strong>Titel</strong></td>
+		<td></td>
+	</tr>
+	{EXPLODE}
+	<tr>
+		<td><span class="badge">{zahl}</span></td>
+		<td>{titel}</td>
+		<td class="text-center" nowrap><a style="margin-right:5px;" href="?rules&sid={id}" rel="tooltip" title="bearbeiten"><i style="color:#2D9600;" class="fa fa-pencil-square-o"></i></a><a href="javascript:del('{id}')" rel="tooltip" title="l&ouml;schen"><i style="color:#AD0000;"class="fa fa-times"></i></a></td>
+	</tr>
+
+{EXPLODE}
+</table></div></div>
+</div></div>
+
