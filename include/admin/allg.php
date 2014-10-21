@@ -2,13 +2,6 @@
 
 #   Copyright by: Manuel
 #   Support: www.ilch.de
-
-$field_types = array(
-    'input' => '<input size="50" type="text" name="%s" value="%s">',
-    'textarea' => '<textarea cols="55" rows="3" name="' . $row['schl'] . '">' . $row['wert'] . '</textarea>'
-);
-
-
 defined('main') or die('no direct access');
 defined('admin') or die('only admin access');
 
