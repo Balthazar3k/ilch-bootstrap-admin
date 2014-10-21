@@ -1,5 +1,6 @@
 !include/install.php
 !include/admin/allg.php
+!include/admin/templates/allg.htm
 !include/admin/groups.php
 !include/admin/newsletter.php
 !include/admin/modules.php
