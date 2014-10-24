@@ -42,9 +42,9 @@ db_query("OPTIMIZE TABLE prefix_stats");
 <ul class="list-group">
   <li class="list-group-item list-group-item-success">
 <h4>Willkommen im Adminbereich</h4>
-In den nun folgenden Zeile wird dir die Oberfläche des Adminbereiches erläutert.<br>
-Oben rechts im DropDown Menü sind die jeweilgen Bereiche der Seite zu finden.<br>Rechts an der Seite befindet sich das Quickmen&uuml; für einen z&uuml;gigen Zugriff zu weiteren Ansichten. Dort sind, je nach dem gewähltem Bereich, passende Links zu finden, &auml;hnlich dem DropDown Menü.<br>
-Hier auf der Startseite gibt es einen Einblick zu einigen Informationen zu der Seite.
+In den nun folgenden Zeilen wird die Oberfläche des Adminbereiches erläutert.<br>
+Oben rechts im DropDown Menü sind die jeweilgen Bereiche der Seite zu finden.<br>Rechts an der Seite befindet sich das Quickmen&uuml; für einen z&uuml;gigen Zugriff zu weiteren Ansichten. Dort sind, je nach dem gewählten Bereich, passende Links zu finden, &auml;hnlich dem DropDown Menü.<br>
+Hier auf der Startseite gibt es einen Einblick zu einigen Informationen der Seite.
 <div class="well well-sm">
 Sollten Probleme mit dem Ilch CMS auftreten nutze den <a class="text-success" href="http://www.ilch.de/texts.html" target="_blank"><strong>FAQ Bereich</strong></a> auf Ilch.de, sowie die Suche im <a class="text-success" href="http://www.ilch.de/forum.html" target="_blank"><strong>Forum</strong></a> f&uuml;r evtl. schon bestehende Threads zu diesem Thema.
 </div>
@@ -58,7 +58,7 @@ Sollten Probleme mit dem Ilch CMS auftreten nutze den <a class="text-success" hr
   <div class="panel-body">
 <legend>Info´s zur Seite</legend>   
 <ul class="list-group">
-  <li class="list-group-item list-group-item-warning">
+  <li class="list-group-item list-group-item-info">
 <table width="100%"><tr>
     <td>Aktuelles Design</td>
 <td class="text-right"><strong><? echo $allgAr['gfx']; ?></strong></td>
@@ -66,7 +66,7 @@ Sollten Probleme mit dem Ilch CMS auftreten nutze den <a class="text-success" hr
   </li>
 </ul>
 <ul class="list-group">
-  <li class="list-group-item list-group-item-warning">
+  <li class="list-group-item list-group-item-info">
 <table width="100%"><tr>
     <td>Script Version</td>
 <td class="text-right"><strong><?php echo 'Ilch '.$scriptVersion.' '.$scriptUpdate.''; ?></strong></td>
@@ -74,7 +74,7 @@ Sollten Probleme mit dem Ilch CMS auftreten nutze den <a class="text-success" hr
   </li>
 </ul>
 <ul class="list-group">
-  <li class="list-group-item list-group-item-warning">
+  <li class="list-group-item list-group-item-info">
 <table width="100%"><tr>
     <td>Gr&ouml;&szlig;e Datenbank</td>
 <td class="text-right"><strong><?php
@@ -88,7 +88,7 @@ $result = db_query("SHOW TABLE STATUS");
   </li>
 </ul>
 <ul class="list-group">
-  <li class="list-group-item list-group-item-warning">
+  <li class="list-group-item list-group-item-info">
 <table width="100%"><tr>
     <td>Download Ordner</td>
 <td class="text-right"><strong><?php echo nicebytes(dirsize('include/downs/')); ?> gro&szlig;</strong></td>
@@ -98,14 +98,14 @@ $result = db_query("SHOW TABLE STATUS");
   </li>
 </ul>
 <ul class="list-group">
-  <li class="list-group-item list-group-item-warning">
+  <li class="list-group-item list-group-item-info">
 <table width="100%"><tr>
     <td>Status Seite</td>
 <td class="text-right"><strong><?
   if ($allgAr['wartung'] == 0){
-     echo '<p class="text-success">Seite Online</p>';
+     echo '<span class="label label-success">Seite Online</span>';
   }else
-    echo '<p class="text-danger">Wartungs Modus</p>';
+    echo '<span class="label label-warning">Wartungs Modus</span>';
 ?></strong></td>
 </tr></table>
   </li>
@@ -161,12 +161,41 @@ $result = db_query("SHOW TABLE STATUS");
 </table>
   </li>
 </ul>
+<legend><h5><strong>neuste Mitglieder</strong></h5></legend>
+<?
+  $abf = 'SELECT * FROM prefix_user ORDER BY regist DESC LIMIT 3';
+	$erg = db_query($abf);
+echo '<div class="list-group">';
+  while ($row = db_fetch_object($erg)) {
+  $regsek = mktime ( 0,0,0, date('m'), date('d'), date('Y') )  - $row->regist;
+  $regday = round($regsek / 86400);
+  $user = $row->name;
+  echo'
+  <a href="?user-1-'.$row->id.'"  class="list-group-item"><strong>'.$user.'</strong><small rel="tooltip" title="angemeldet am '.date('d.m.Y',$row->regist).'" class="pull-right">( '.date('d.m.Y',$row->regist).' )</small></a>';
+}
+echo '</div>';
+?>
+
+
 </div></div>
 </div>
 
 </div>
 <div class="row">
-  <div class="col-md-4">Box4</div>
+  <div class="col-md-4">
+<div class="panel panel-default">
+  <div class="panel-body">
+<legend>Statistiken</legend>   
+<ul class="list-group">
+  <li class="list-group-item list-group-item-warning">
+<table width="100%"><tr>
+    <td>stat-1</td>
+<td class="text-right"><strong>stat</strong></td>
+</tr></table>
+  </li>
+</ul>
+</div></div>
+</div>
   <div class="col-md-4">Box5</div>
   <div class="col-md-4">Box6</div>
 </div>
