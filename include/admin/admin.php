@@ -34,6 +34,25 @@ db_query("OPTIMIZE TABLE prefix_stats");
            ?>
 <span class="visible-xs-offcanvas"><br><br></span>
 <div class="row">
+
+  <div class="col-md-4">
+<div class="panel panel-default">
+  <div class="panel-body">
+<legend>Hilfe Adminbereich</legend>   
+<ul class="list-group">
+  <li class="list-group-item list-group-item-success">
+<h4>Willkommen im Adminbereich</h4>
+In den nun folgenden Zeile wird dir die Oberfläche des Adminbereiches erläutert.<br>
+Oben rechts im DropDown Menü sind die jeweilgen Bereiche der Seite zu finden.<br>Rechts an der Seite befindet sich das Quickmen&uuml; für einen z&uuml;gigen Zugriff zu weiteren Ansichten. Dort sind, je nach dem gewähltem Bereich, passende Links zu finden, &auml;hnlich dem DropDown Menü.<br>
+Hier auf der Startseite gibt es einen Einblick zu einigen Informationen zu der Seite.
+<div class="well well-sm">
+Sollten Probleme mit dem Ilch CMS auftreten nutze den <a class="text-success" href="http://www.ilch.de/texts.html" target="_blank"><strong>FAQ Bereich</strong></a> auf Ilch.de, sowie die Suche im <a class="text-success" href="http://www.ilch.de/forum.html" target="_blank"><strong>Forum</strong></a> f&uuml;r evtl. schon bestehende Threads zu diesem Thema.
+</div>
+  </li>
+</ul>
+</div></div>
+</div>
+
   <div class="col-md-4">
 <div class="panel panel-default">
   <div class="panel-body">
@@ -140,23 +159,6 @@ $result = db_query("SHOW TABLE STATUS");
 </tr>
 <tr><td colspan="2" class="text-left"><a class="btn btn-default btn-xs" href="admin.php?groups-joinus">Joinus anzeigen</a></td></tr>
 </table>
-  </li>
-</ul>
-
-</div>
-</div>
-
-</div>
-  <div class="col-md-4">
-<div class="panel panel-default">
-  <div class="panel-body">
-<legend>panel 3</legend>   
-<ul class="list-group">
-  <li class="list-group-item list-group-item-warning">
-<table width="100%"><tr>
-    <td>li3</td>
-<td class="text-right"><strong>li_right3</strong></td>
-</tr></table>
   </li>
 </ul>
 </div></div>
