@@ -88,4 +88,5 @@ n!include/admin/templates/ews.htm
 !include/admin/templates/wars/next.htm
 !include/admin/templates/wars/upload.htm
 !include/boxes/adminmenu.php
+!include/boxes/ap_sta.php
 !include/includes/js/editor/whizzywig.js
