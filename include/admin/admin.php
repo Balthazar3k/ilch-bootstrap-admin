@@ -42,8 +42,8 @@ db_query("OPTIMIZE TABLE prefix_stats");
 <ul class="list-group">
   <li class="list-group-item list-group-item-success">
 <h4>Willkommen im Adminbereich</h4>
-In den nun folgenden Zeilen wird die OberflÃ¤che des Adminbereiches erlÃ¤utert.<br>
-Oben rechts im DropDown MenÃ¼ sind die jeweilgen Bereiche der Seite zu finden.<br>Rechts an der Seite befindet sich das Quickmen&uuml; fÃ¼r einen z&uuml;gigen Zugriff zu weiteren Ansichten. Dort sind, je nach dem gewÃ¤hlten Bereich, passende Links zu finden, &auml;hnlich dem DropDown MenÃ¼.<br>
+In den nun folgenden Zeilen wird die Oberfläche des Adminbereiches erläutert.<br>
+Oben rechts im DropDown Menü sind die jeweilgen Bereiche der Seite zu finden.<br>Rechts an der Seite befindet sich das Quickmen&uuml; für einen z&uuml;gigen Zugriff zu weiteren Ansichten. Dort sind, je nach dem gewählten Bereich, passende Links zu finden, &auml;hnlich dem DropDown Menü.<br>
 Hier auf der Startseite gibt es einen Einblick zu einigen Informationen der Seite.
 <div class="well well-sm">
 Sollten Probleme mit dem Ilch CMS auftreten nutze den <a class="text-success" href="http://www.ilch.de/texts.html" target="_blank"><strong>FAQ Bereich</strong></a> auf Ilch.de, sowie die Suche im <a class="text-success" href="http://www.ilch.de/forum.html" target="_blank"><strong>Forum</strong></a> f&uuml;r evtl. schon bestehende Threads zu diesem Thema.
@@ -55,7 +55,7 @@ Sollten Probleme mit dem Ilch CMS auftreten nutze den <a class="text-success" hr
   <div class="col-md-4">
 <div class="panel panel-default">
   <div class="panel-body">
-<legend><i class="fa fa-info-circle"></i> InfoÂ´s zur Seite</legend>   
+<legend><i class="fa fa-info-circle"></i> Info´s zur Seite</legend>   
 <ul class="list-group">
   <li class="list-group-item list-group-item-info">
 <table width="100%"><tr>
@@ -188,8 +188,26 @@ echo '</div>';
 <? include ('include/boxes/ap_sta.php');?>
 </div></div>
 </div>
-  <div class="col-md-4">Box5</div>
-  <div class="col-md-4">Box6</div>
+  <div class="col-md-4">
+<div class="panel panel-default bg-warning">
+  <div class="panel-body bg-warning">
+<legend><i class="fa fa-file-text-o"></i> Letzte Eintr&auml;ge</legend>   
+<legend class="text-info"><h5><strong>Letzte News</strong></h5></legend>
+<? include ('include/boxes/ap_ne.php');?>
+<legend class="text-info"><h5><strong>Letzte Forumeintr&auml;ge</strong></h5></legend>
+<? include ('include/boxes/ap_fo.php');?>
+</div></div>
+</div>
+  <div class="col-md-4">
+<div class="panel panel-default">
+  <div class="panel-body">
+<legend><i class="fa fa-calendar-o"></i> Termine</legend>  
+<legend ><h5><strong>Kalender Eintr&auml;ge</strong></h5></legend>
+<? include ('include/boxes/ap_termin.php');?>
+<legend ><h5><strong>Next Wars</strong></h5></legend>
+<? include ('include/boxes/ap_next.php');?>
+</div></div>
+</div>
 </div>
 
            <?php
