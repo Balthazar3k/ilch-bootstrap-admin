@@ -38,7 +38,7 @@ db_query("OPTIMIZE TABLE prefix_stats");
   <div class="col-md-4">
 <div class="panel panel-default">
   <div class="panel-body">
-<legend>Hilfe Adminbereich</legend>   
+<legend><i class="fa fa-life-ring"></i> Hilfe Adminbereich</legend>   
 <ul class="list-group">
   <li class="list-group-item list-group-item-success">
 <h4>Willkommen im Adminbereich</h4>
@@ -52,11 +52,10 @@ Sollten Probleme mit dem Ilch CMS auftreten nutze den <a class="text-success" hr
 </ul>
 </div></div>
 </div>
-
   <div class="col-md-4">
 <div class="panel panel-default">
   <div class="panel-body">
-<legend>Info´s zur Seite</legend>   
+<legend><i class="fa fa-info-circle"></i> Info´s zur Seite</legend>   
 <ul class="list-group">
   <li class="list-group-item list-group-item-info">
 <table width="100%"><tr>
@@ -116,7 +115,7 @@ $result = db_query("SHOW TABLE STATUS");
   <div class="col-md-4">
 <div class="panel panel-default">
   <div class="panel-body">
-<legend>User</legend>   
+<legend><i class="fa fa-users"></i> User</legend>   
 <ul class="list-group">
   <li class="list-group-item list-group-item-warning">
 <table width="100%"><tr>
@@ -185,15 +184,8 @@ echo '</div>';
   <div class="col-md-4">
 <div class="panel panel-default">
   <div class="panel-body">
-<legend>Statistiken</legend>   
-<ul class="list-group">
-  <li class="list-group-item list-group-item-warning">
-<table width="100%"><tr>
-    <td>stat-1</td>
-<td class="text-right"><strong>stat</strong></td>
-</tr></table>
-  </li>
-</ul>
+<legend><i class="fa fa-signal"></i> Statistiken</legend>   
+<? include ('include/boxes/ap_sta.php');?>
 </div></div>
 </div>
   <div class="col-md-4">Box5</div>
