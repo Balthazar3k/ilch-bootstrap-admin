@@ -250,34 +250,39 @@ echo '</div>';
               $max = @db_result(db_query("SELECT COUNT(*) as wert, $col as schl FROM prefix_stats WHERE mon = ".$smon." GROUP BY schl ORDER BY wert DESC LIMIT 1"),0,0);
               if ( empty($max) ) { $max = 1; }
               if ( empty($ges) ) { $ges = 1; }
-              echo '<tr><th align="left" colspan="4">'.$title.'</th></tr>';
+              echo '<tr><th colspan="3" class="text-left warning"><strong>'.$title.'</strong></th></tr>';
               while ( $r = db_fetch_assoc($sql) ) {
                 $wert = ( empty($r['wert']) ? 1 : $r['wert'] );
-                $weite = ($wert / $max) * 200;
+                $weite = ($wert / $max) * 100;
 					      $prozent = ($wert * 100) / $ges;
 					      $prozent = number_format(round($prozent,2), 2, ',', '');
                 $name = $r['schl'];
                 if ( strlen ( $name ) >= 50 ) {
-                  $name = substr($name,0,50).'<b>...</b>';
+                  $name = substr($name,0,50).'';
                 }
-                echo '<tr class="active"><td width="150" title="'.$r['schl'].'">'.$name.'</td><td width="250">';
-                echo '<hr width="'.$weite.'" align="left" style="color:#2f2f2f"/></td>';
-                echo '<td width="50" align="right">'.$prozent.'%</td>';
-                echo '<td  width="50" align="right">'.$wert.'</td></tr>';
+                echo '<tr><td  class="info"><a style="color:#000;" href="'.$name.'" target="_blank">'.$name.'</a></td>';
+                echo '<td style="min-width:65%;"><div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="'.$weite.'"  aria-valuemin="0" aria-valuemax="100" style="width:'.$weite.'%;min-width: 50px;">
+    '.$prozent.'%
+  </div>
+</div></td>';
+                echo '<td class="text-right success"><span class="badge">'.$wert.'</span></td></tr>';
               }
             }
+
+
 
             // ICON Anzeige...
             echo '<legend><h2><i class="fa fa-tasks"></i> Besucher Statistik</h2></legend>';
 
-            echo '<div class="btn-group btn-group-sm"><a  class="btn btn-primary" href="admin.php?admin-besucherUebersicht">&Uuml;bersicht</a><a  class="btn btn-primary" href="?admin-besucherStatistik-'.$lastmon.'">letzter Monat</a><a  class="btn btn-primary" href="?admin-besucherStatistik-'.$mon.'">dieser Monat</a></div>';
+            echo '<div class="btn-group btn-group-sm"><a  class="btn btn-primary" href="admin.php?admin-besucherUebersicht">&Uuml;bersicht</a><a  class="btn btn-info" href="?admin-besucherStatistik-'.$lastmon.'">letzter Monat</a><a  class="btn btn-warning" href="?admin-besucherStatistik-'.$mon.'">dieser Monat</a></div>';
             $smon  = $menu->get(2);
             if ( empty($smon) ) { $smon = $mon; }
 
 
             $ges = db_result(db_query("SELECT COUNT(*) FROM prefix_stats WHERE mon = ".$smon),0,0);
-            echo '<br><br><b>Gesamt diesen Monat: '.$ges.'</b>';
-            echo '<table class="table">';
+            echo '<h5 class="pull-right"><span class="label label-danger">Gesamt diesen Monat : '.$ges.'</span></h5>';
+            echo '<table class="table table-condensed">';
 
             echo_admin_site_statistik ('Besucher nach Tagen', 'day', $smon, $ges, "schl DESC LIMIT 50" );
             echo_admin_site_statistik ('Besucher nach Wochentagen', 'DAYNAME(FROM_UNIXTIME((wtag+3)*86400))', $smon, $ges, "wtag DESC LIMIT 50" );
@@ -291,7 +296,6 @@ echo '</div>';
 
 				    break;
 				}
-
 
 
 
@@ -335,22 +339,24 @@ echo '</div>';
               if ( strlen ( $name ) >= 50 ) {
                 $name = substr($name,0,50).'<b>...</b>';
               }
-              echo '<tr class="norm"><td width="150" title="'.$schl.'">'.$name.'</td><td width="250">';
-              echo '<hr width="'.$weite.'" align="left" /></td>';
-              echo '<td width="50" align="right">'.$prozent.'%</td>';
-              echo '<td  width="50" align="right">'.$wert.'</td></tr>';
+              echo '<tr><td>'.$name.'</td><td class="success" min-width="'.$weite.'">';
+              echo '<hr width="'.$weite.'" class="pull-left" style="color:#000;border-color:#000;" /></td>';
+              echo '<td class="text-right"><span class="label label-info">'.$prozent.'%</span></td>';
+              echo '<td class="text-right">'.$wert.'</td></tr>';
             }
 
           // ICON Anzeige...
-          echo '<table cellpadding="0" cellspacing="0" border="0"><tr><td><img src="include/images/icons/admin/stats_visitor.png" /></td><td width="30"></td><td valign="bottom"><h1>Besucher Statistik</h1></td></tr></table>';
+          echo '<legend><h2><i class="fa fa-tasks"></i> Besucher Statistik</h2></legend>';
 
 
-          echo '<a href="admin.php?admin-besucherUebersicht">&Uuml;bersicht</a>&nbsp;<b>|</b>&nbsp;<a href="?admin-besucherStatistik-'.$lastmon.'" title="'.$lastmon.'. '.$lastjahr.'">letzter Monat</a>&nbsp;<b>|</b>&nbsp;<a href="?admin-besucherStatistik-'.$mon.'" title="'.$mon.'. '.$jahr.'">dieser Monat</a>';
+          echo '<div class="btn-group btn-group-sm"><a  class="btn btn-primary" href="admin.php?admin-besucherUebersicht">&Uuml;bersicht</a><a  class="btn btn-info" href="?admin-besucherStatistik-'.$lastmon.'">letzter Monat</a><a  class="btn btn-warning" href="?admin-besucherStatistik-'.$mon.'">dieser Monat</a></div><br><br>';
 
-          echo '<br /><br /><table cellpadding="0" border="0" cellspacing="0" width="100%">';
-          echo '<tr><td valign="top" width="33%"><b>Nach Tagen (letzten 5 Monate):</b><br />';
+          echo '<div class="row">';
+          echo '<div class="col-md-4"><div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Nach Tagen (letzten 5 Monate)</h3></div><div class="panel-body">';
 
-          echo '<table cellpadding="0" border="0" cellspacing="0" width="90%">';
+          echo '<table class="table table-condensed">';
           $max = db_result(db_query("SELECT MAX(`count`) FROM prefix_counter"),0);
           $ges = db_result(db_query("SELECT SUM(`count`) FROM prefix_counter"),0);
           $erg = db_query("SELECT `count` as sum, DATE_FORMAT(`date`, '%d.%m.%Y') as datum FROM prefix_counter ORDER BY `date` DESC");
@@ -359,9 +365,12 @@ echo '</div>';
           }
           echo '</table>';
 
-          echo '</td><td valign="top" width="33%"><b>Nach Monaten:</b><br />';
+          echo '</div></div></div><div class="col-md-4">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Nach Monaten</h3></div><div class="panel-body">';
 
-          echo '<table cellpadding="0" border="0" cellspacing="0" width="90%">';
+          echo '<table class="table table-condensed">';
           $max = get_max_from_x("SELECT SUM(`count`) FROM prefix_counter GROUP BY MONTH(`date`), YEAR(`date`)");
           $erg = db_query("SELECT SUM(`count`) as sum, MONTH(`date`) as monat, YEAR(`date`) as jahr FROM prefix_counter GROUP BY monat, jahr ORDER BY jahr DESC, monat DESC");
           while ($r = db_fetch_assoc($erg)) {
@@ -369,9 +378,12 @@ echo '</div>';
           }
           echo '</table>';
 
-          echo '</td><td valign="top" width="33%"><b>Nach Jahren:</b><br />';
+          echo '</div></div></div><div class="col-md-4">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Nach Jahren</h3></div><div class="panel-body">';
 
-          echo '<table cellpadding="0" border="0" cellspacing="0" width="90%">';
+          echo '<table class="table table-condensed">';
           $max = get_max_from_x("SELECT SUM(`count`) FROM prefix_counter GROUP BY YEAR(`date`)");
           $erg = db_query("SELECT SUM(`count`) as sum, YEAR(`date`) as jahr FROM prefix_counter GROUP BY jahr ORDER BY jahr DESC");
           while ($r = db_fetch_assoc($erg)) {
@@ -379,7 +391,7 @@ echo '</div>';
           }
           echo '</table>';
 
-          echo '</td></tr></table>';
+          echo '</div></div></div></div>';
           break;
 
         }
