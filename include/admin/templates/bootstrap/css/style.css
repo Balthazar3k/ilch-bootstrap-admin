@@ -13,3 +13,27 @@
 .visible-xsmin {display:none;}
 .visible-xsmin-in {display:inline;}
 }
+.border {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+border: 1px solid #ddd;
+}
+.border > thead > tr > th,
+.border > tbody > tr > th,
+.border > tfoot > tr > th,
+.border > thead > tr > td,
+.border > tbody > tr > td,
+.border > tfoot > tr > td {
+  border: 1px solid #ddd;
+}
+.Chead, .Cmite, .Cnorm, .Cdark {
+  padding: 5px;
+}
+.border > tr,
+.border > td,
+.border > th 
+{
+  padding: 5px;
+}
