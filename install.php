@@ -24,7 +24,6 @@ $sql[] = "UPDATE `prefix_modules` SET kat='User', pos='40' WHERE url='groups';";
 $sql[] = "UPDATE `prefix_modules` SET kat='User', pos='41' WHERE url='rules';";
 $sql[] = "UPDATE `prefix_modules` SET kat='User', pos='39' WHERE url='awards';";
 
-$sql[] = "UPDATE `prefix_modules` SET kat='Clan', pos='12' WHERE url='awaycal';";
 $sql[] = "UPDATE `prefix_modules` SET kat='Clan', pos='17' WHERE url='kasse';";
 $sql[] = "UPDATE `prefix_modules` SET kat='Clan', pos='14' WHERE url='wars';";
 $sql[] = "UPDATE `prefix_modules` SET kat='Module' WHERE kat='';";
@@ -60,6 +59,7 @@ $sql[] = "
         ('smtpconf', 'SMTP Einstellung', 0, 1, 0, 'Admin', 9),
         ('vote', 'Umfrage', 0, 1, 0, 'Boxen', 10),
         ('vote', 'Umfrage', 0, 1, 0, 'Content', 29);
+        ('archiv-partners', 'Partner', 0, 1, 0, 'Boxen', 12),
 ";
 
 $status = array();
