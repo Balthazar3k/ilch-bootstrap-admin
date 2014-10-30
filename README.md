@@ -9,7 +9,7 @@ Bei Fragen und Problemmeldungen nutzt bitte den Contact auf Maretz.eu oder im Fo
 
 
 Installation:
-
+-------------------
 Anpassung an den Ilch 1.1p Adminbereich.Bei anderen Versionen kann es zu Fehlern kommen.
 
 Als erstes die bestehende Seite sichern ! ( Datenbank, sowie Root-ftp Sicherung der Seite)
