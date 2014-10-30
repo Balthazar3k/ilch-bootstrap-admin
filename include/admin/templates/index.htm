@@ -37,6 +37,7 @@
           </span>
             
             {EXPLODE}
+<div class="well well-sm text-center">Ilch 1.1p Admin Center meets Bootstrap umgesetzt von <a href="http://balthazar3k.howald-design.ch" target="_blank"><strong>Balthazar3k</strong></a> und <a href="http://www.maretz.eu" target="_blank"><strong>Maretz</strong></a><span class="pull-right"><a rel="tooltip" title="scroll Top" href="#top" id ="backToTopBtn" ><i class="fa fa-caret-square-o-up fa-2x"></i></a></span></div>
 
           </div>
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas"  id="sidebar" role="navigation">
@@ -54,6 +55,10 @@
 $(document).bind("mobileinit", function(){
   $.mobile.touchOverflowEnabled = true;
 });
+
+$('#backToTopBtn').click(function(){
+        $('html,body').animate({scrollTop:0},'slow');return false;
+    });
 </script>
   </body>
 </html>
