@@ -61,7 +61,7 @@ END;
                     {$listeG}
             </select>
 <label class="checkbox-inline">
-  <input type="checkbox" name="andhigher" id="cb_andhigher" value="1"> und für alle höheren Rechte
+  <input type="checkbox" name="andhigher" id="cb_andhigher" value="1"> und f&uuml;r alle h&ouml;heren Rechte
 </label>
 END;
     }
