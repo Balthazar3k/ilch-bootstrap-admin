@@ -23,6 +23,9 @@ ORDER BY c.time DESC
 LIMIT 0,3";
 echo '<ul class="list-group list-group-boxen text-left">';
 $resultID = db_query($query);
+if ( @db_num_rows($resultID) == 0 ) {
+	echo '<ul class="list-group list-group-boxen text-center"><div class="alert alert-info" role="alert">kein Forumeintrag vorhanden<br><a class="text-info" href="admin.php?forum"><strong>jetzt neues Forum erstellen</strong></a></div></ul>';
+} 
 while ($row = db_fetch_assoc($resultID)) {
 	$row['date'] = date('d.m.y - H:i',$row['time']);
 	$row['page'] = ceil ( ($row['rep']+1)  / $allgAr['Fpanz'] );

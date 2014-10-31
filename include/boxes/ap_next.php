@@ -7,7 +7,7 @@ defined ('main') or die ( 'no direct access' );
 $akttime = date('Y-m-d');
 $erg = @db_query("SELECT DATE_FORMAT(datime,'%d.%m.%y - %H:%i') as time,tag,gegner, id, game FROM prefix_wars WHERE status = 2 AND datime > '".$akttime."' ORDER BY datime");
 if ( @db_num_rows($erg) == 0 ) {
-	echo '<ul class="list-group list-group-boxen text-center"><div class="alert alert-warning" role="alert">Aktuell kein War geplant</div></ul>';
+	echo '<ul class="list-group list-group-boxen text-center"><div class="alert alert-warning" role="alert">Aktuell kein War geplant<br><a class="text-warning" href="admin.php?wars-next"><strong>Next-War eintragen</strong></a></div></ul>';
 } else {
 echo '<ul class="list-group list-group-boxen text-left">';
 	while ($row = @db_fetch_object($erg) ) {
