@@ -4,7 +4,7 @@ Ilch 1.1p Admin Center angepasst an Bootstrap.
 Für eine optimale Nutzung des Admin Bereiches auf allen modernen Endgeräten, wie dem Smartphone, Tablet oder dem PC.
 
 Aktuell befindet sich das Modul in der Beta-Phase (Testumgebung nutzen) !
-Bei Fragen und Problemmeldungen nutzt bitte den Contact auf Maretz.eu oder im Forumthread auf Ilch.de ( Link folgt)
+Bei Fragen und Problemmeldungen nutzt bitte den Contact auf Maretz.eu oder im Forumthread auf Ilch.de ( http://www.ilch.de/forum-showposts-51972-p1.html#375648 )
 
 
 
