@@ -26,7 +26,8 @@ if (empty($_GET['sum'])) {
   $downloads  = @db_result(db_query("SELECT count(ID) FROM prefix_downloads"),0);
   $bges = @db_count_query("SELECT COUNT(*) FROM prefix_gallery_imgs");
   $ubges = @db_count_query("SELECT COUNT(*) FROM prefix_usergallery");
-  $links = @db_count_query("SELECT COUNT(ID) FROM prefix_links"); 
+  $links = @db_count_query("SELECT COUNT(ID) FROM prefix_links");
+  $partner = @db_count_query("SELECT COUNT(ID) FROM prefix_partners");
 	$gesuser  = @db_result(db_query("SELECT count(ID) FROM prefix_user"),0);
 	$gesch1  = @db_result(db_query("SELECT count(ID) FROM prefix_user where geschlecht = 1"),0);
 	$gesch2  = @db_result(db_query("SELECT count(ID) FROM prefix_user where geschlecht = 2"),0);
@@ -136,7 +137,11 @@ echo'<ul class="list-group">
 </tr>
 <tr>
     <td>Links</td>
-<td class="text-right"><strong>'.$links.' Eintr&auml;ge</strong> <a href="admin.php?archiv-partners" rel="tooltip" title="Eintr&auml;ge verwalten"><i class="fa fa-external-link"></i></a></td>
+<td class="text-right"><strong>'.$links.' Eintr&auml;ge</strong> <a href="admin.php?archiv-links" rel="tooltip" title="Eintr&auml;ge verwalten"><i class="fa fa-external-link"></i></a></td>
+</tr>
+<tr>
+    <td>Partner</td>
+<td class="text-right"><strong>'.$partner.' Eintr&auml;ge</strong> <a href="admin.php?archiv-partners" rel="tooltip" title="Eintr&auml;ge verwalten"><i class="fa fa-external-link"></i></a></td>
 </tr>
 </table>
   </li>

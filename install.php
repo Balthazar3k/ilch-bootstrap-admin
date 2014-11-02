@@ -60,6 +60,7 @@ $sql[] = "
         ('vote', 'Umfrage', 0, 1, 0, 'Boxen', 10),
         ('vote', 'Umfrage', 0, 1, 0, 'Content', 29);
         ('archiv-partners', 'Partner', 0, 1, 0, 'Boxen', 12),
+        ('archiv-links', 'Links', 0, 1, 0, 'Content', 30),
 ";
 
 $status = array();
