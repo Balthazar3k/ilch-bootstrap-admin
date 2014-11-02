@@ -1,5 +1,6 @@
 Im Ordner extras findest du angepasste Dateien zu Modulen.
 Es sollte erst das Modul installiert sein, bevor diese Erweiterung ausgespielt werden kann.
+Unten findest du die Auflistung der Module mit dem Link zum Original Download.
 
 Liste der angepassten Module:
 -------------------
