@@ -6,7 +6,7 @@ Liste der angepassten Module:
 -------------------
 
 - BBcode 2.0 1.1p > http://www.ilch.de/downloads-show-1742.html
-
+- Ticker 2.0 > http://www.ilch.de/downloads-show-1082.html
 
 
 
