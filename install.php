@@ -58,9 +58,9 @@ $sql[] = "
         ('selfbp', 'Eigene Seite/Box', 0, 1, 0, 'Content', 28),
         ('smtpconf', 'SMTP Einstellung', 0, 1, 0, 'Admin', 9),
         ('vote', 'Umfrage', 0, 1, 0, 'Boxen', 10),
-        ('vote', 'Umfrage', 0, 1, 0, 'Content', 29);
+        ('vote', 'Umfrage', 0, 1, 0, 'Content', 29),
         ('archiv-partners', 'Partner', 0, 1, 0, 'Boxen', 12),
-        ('archiv-links', 'Links', 0, 1, 0, 'Content', 30),
+        ('archiv-links', 'Links', 0, 1, 0, 'Content', 30);
 ";
 
 $status = array();
