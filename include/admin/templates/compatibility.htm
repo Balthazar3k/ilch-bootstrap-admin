@@ -16,31 +16,31 @@ function toggleDiv(element){
 //-->
 </script>
 {EXPLODE}
-<legend><h2><i class="fa fa-user-md"></i> Kompatibilität</h2></legend>
+<legend><h2><i class="fa fa-user-md"></i> Kompatibilit&auml;t</h2></legend>
 <div>
     <div class="alert alert-info" role="alert">
-        <strong>Kompatibilität prüfen</strong>
+        <strong>Kompatibilit&auml;t pr&uuml;fen</strong>
         <br>
-            Mit PHP 5.4 wurde die Verwendung von <em>htmlentities</em>, <em>htmlspecialchars</em>, <em>html_entity_decode</em> und <em>get_html_translation_table</em> geändert.
-        Dem wurde mit dem Update P Rechnung getragen, so dass dies auch auf der neuen PHP Version funktioniert.
-        Allerdings müssen ggf. Änderungen an alten Dateien von nicht an ilchClan 1.1P angepasste Modulen vorgenommen werden.
-        Mit Hilfe dieses Tools können die zu ändernden Codestellen in hochgeladenen Dateien ausgemacht werden.
+            Mit PHP 5.4 wurde die Verwendung von <em>htmlentities</em>, <em>htmlspecialchars</em>, <em>html_entity_decode</em> und <em>get_html_translation_table</em> ge&auml;ndert.
+        Dem wurde mit dem Update <strong>P</strong> Rechnung getragen, so dass dies auch auf der neuen PHP Version funktioniert.
+        Allerdings m&uuml;ssen ggf. &Auml;nderungen an alten Dateien von nicht an ilchClan 1.1P angepasste Modulen vorgenommen werden.
+        Mit Hilfe dieses Tools k&ouml;nnen die zu &auml;ndernden Codestellen in hochgeladenen Dateien ausgemacht werden.
     </div>
 <div class="panel panel-default">
   <div class="panel-body">
         <legend>Anpassungen vornehmen</legend>
         <br>
-        <div class="well well-sm red">{_if_{notneeded}=='1'}Da deine PHP Version kleiner als 5.4 ist, musst du die Änderungen nicht unbedingt vornehmen.
-        {_else_}Da du eine PHP Version größer als 5.4 einsetzt, müssen die Änderungen für einen reibungslosen Betrieb vorgenommen werden.
+        <div class="well well-sm red">{_if_{notneeded}=='1'}Da deine PHP Version kleiner als 5.4 ist, musst du die &Auml;nderungen nicht unbedingt vornehmen.
+        {_else_}Da du eine PHP Version gr&ouml;&szlig;er als 5.4 einsetzt, m&uuml;ssen die &Auml;nderungen f&uuml;r einen reibungslosen Betrieb vorgenommen werden.
         {/_endif}</div><br>
-        Die rot markierten Stellen im Code, falls Änderungen vorhanden, müssen angepasst werden.<br><br><i class="fa fa-life-ring"></i> Als Beispiel :<br><br>
+        Die rot markierten Stellen im Code, falls &Auml;nderungen vorhanden, m&uuml;ssen angepasst werden.<br><br><i class="fa fa-life-ring"></i> Als Beispiel :<br><br>
         <kbd>htmlentites($variable);</kbd><br>muss zu<br><kbd>htmlentites($variable, ILCH_ENTITIES_FLAGS, ILCH_CHARSET);</kbd><br>
-        geändert werden.<br><br>
+        ge&auml;ndert werden.<br><br>
     <div class="clear"></div>
 <table class="table">
     <tr class="warning">
     <td><b>betroffene Datei</b></td>
-    <td><b>notwendige Änderungen</b></td>
+    <td><b>notwendige &Auml;nderungen</b></td>
     </tr>
     {EXPLODE}
     <tr>

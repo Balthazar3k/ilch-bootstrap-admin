@@ -52,12 +52,12 @@ switch ( $um ) {
   default :
   	$design = new design ( 'Admins Area', 'Admins Area', 2 );
 		$design->header();
-    ?>
+    ?><div class="row text-center">
     <strong>Folgende Auswahlm&ouml;glichkeiten:</strong><br><br>
     <div class="btn-group btn-group-sm">
     <a class="btn btn-primary" href="admin.php?wars-last">Lastwars</a>
     <a class="btn btn-primary" href="admin.php?wars-next">Nextwars</a>
-    </div>
+    </div></div><br><br>
     <?php
     $design->footer();
     break;

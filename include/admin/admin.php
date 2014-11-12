@@ -60,7 +60,7 @@ Sollten Probleme mit dem Ilch CMS auftreten nutze den <a class="text-success" hr
   <li class="list-group-item list-group-item-info">
 <table width="100%"><tr>
     <td>Aktuelles Design</td>
-<td class="text-right"><strong><? echo $allgAr['gfx']; ?></strong></td>
+<td class="text-right"><strong><?php echo $allgAr['gfx']; ?></strong></td>
 </tr></table>
   </li>
 </ul>
@@ -100,7 +100,7 @@ $result = db_query("SHOW TABLE STATUS");
   <li class="list-group-item list-group-item-info">
 <table width="100%"><tr>
     <td>Status Seite</td>
-<td class="text-right"><strong><?
+<td class="text-right"><strong><?php
   if ($allgAr['wartung'] == 0){
      echo '<span class="label label-success">Seite Online</span>';
   }else
@@ -138,7 +138,7 @@ $result = db_query("SHOW TABLE STATUS");
   <li class="list-group-item list-group-item-warning">
 <table width="100%"><tr>
     <td>Offene Registry</td>
-<td class="text-right"><strong><?
+<td class="text-right"><strong><?php
   $gesuser  = @db_result(db_query("SELECT count(name) FROM prefix_usercheck WHERE ak = 1"),0);
   echo ' '.$gesuser.' ';
 ?></strong></td>
@@ -151,7 +151,7 @@ $result = db_query("SHOW TABLE STATUS");
   <li class="list-group-item list-group-item-warning">
 <table width="100%"><tr>
     <td>Offene JoinUs</td>
-<td class="text-right"><strong><?
+<td class="text-right"><strong><?php
  $joinus  = @db_result(db_query("SELECT count(name) FROM prefix_usercheck WHERE ak = 4"),0);
   echo ' '.$joinus.' ';
   ?></strong></td>
@@ -161,7 +161,7 @@ $result = db_query("SHOW TABLE STATUS");
   </li>
 </ul>
 <legend><h5><strong>neuste Mitglieder</strong></h5></legend>
-<?
+<?php
   $abf = 'SELECT * FROM prefix_user ORDER BY regist DESC LIMIT 3';
 	$erg = db_query($abf);
 echo '<div class="list-group">';
@@ -185,7 +185,7 @@ echo '</div>';
 <div class="panel panel-default">
   <div class="panel-body">
 <legend><i class="fa fa-signal"></i> Statistiken</legend>   
-<? include ('include/boxes/ap_sta.php');?>
+<?php include ('include/boxes/ap_sta.php');?>
 </div></div>
 </div>
   <div class="col-md-4">
@@ -193,9 +193,9 @@ echo '</div>';
   <div class="panel-body bg-warning">
 <legend><i class="fa fa-file-text-o"></i> Letzte Eintr&auml;ge</legend>   
 <legend class="text-info"><h5><strong>Letzte News</strong></h5></legend>
-<? include ('include/boxes/ap_ne.php');?>
+<?php include ('include/boxes/ap_ne.php');?>
 <legend class="text-info"><h5><strong>Letzte Forumeintr&auml;ge</strong></h5></legend>
-<? include ('include/boxes/ap_fo.php');?>
+<?php include ('include/boxes/ap_fo.php');?>
 </div></div>
 </div>
   <div class="col-md-4">
@@ -203,9 +203,9 @@ echo '</div>';
   <div class="panel-body">
 <legend><i class="fa fa-calendar-o"></i> Termine</legend>  
 <legend ><h5><strong>Kalender Eintr&auml;ge</strong></h5></legend>
-<? include ('include/boxes/ap_termin.php');?>
+<?php include ('include/boxes/ap_termin.php');?>
 <legend ><h5><strong>Next Wars</strong></h5></legend>
-<? include ('include/boxes/ap_next.php');?>
+<?php include ('include/boxes/ap_next.php');?>
 </div></div>
 </div>
 </div>

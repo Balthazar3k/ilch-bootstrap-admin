@@ -9,10 +9,10 @@
 			}
 		//-->
 </script>
+		  <form action="admin.php?gbook" method="POST" class="form-horizontal" role="form">
 	  <legend><h2><i class="fa fa-book"></i> Gbook</h2></legend>
 <div class="row">
   <div class="col-md-6">
-		  <form action="admin.php?gbook" method="POST" class="form-horizontal" role="form">
 			<input type="hidden" name="gid" value="{id}" >
   <div class="form-group">
     <label class="col-sm-2 control-label">Name</label>
@@ -44,11 +44,13 @@
 <input type="submit" class="btn btn-primary" value="Absenden" name="sub">
     </div>
   </div>
-</form>
 </div>
-<div class="col-md-6"> 
+</form>
+<div class="col-md-6">
 <span class="visible-xs-800"><legend>G-Book Eintr&auml;ge</legend></span>
 <ul class="list-group">
 {EXPLODE}
 </ul>
-</div><div>
+</div></div>
+
+
