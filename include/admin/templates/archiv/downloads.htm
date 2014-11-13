@@ -1,148 +1,172 @@
 <legend><h2><i class="fa fa-download"></i> Downloads</h2></legend>
 <div class="row">
-  <div class="col-md-6">
+    <div class="col-md-6">
 
-<div class="panel panel-default">
-  <div class="panel-body">
-<table class="table">
-  <tr class="warning">
-		<td><strong>Name</strong></td>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="table">
+                    <tr class="warning">
+                        <td><strong>Name</strong></td>
 
-		<td></td>
-	</tr>
-{EXPLODE}
-  <tr>
-	  <td>{name} <small style="color:#707070;">{version}</small></td>
-		<td class="text-right">
-<a style="margin-right:4px;" href="?archiv-downloads-e{id}#edit" rel="tooltip" title="&auml;ndern"><i style="color:#2D9600;" class="fa fa-pencil-square-o"></i></a>
-<a style="margin-right:4px;" href="javascript:del('{id}')" rel="tooltip" title="l&ouml;schen"><i style="color:#AD0000;" class="fa fa-trash-o"></i></a>
-<a style="margin-right:4px;" href="?archiv-downloads-S{cat}-o{id}-{pos}" rel="tooltip" title="nach oben verschieben"><i style="color:#C64F00;" class="fa fa-long-arrow-up"></i></a>
-<a href="?archiv-downloads-S{cat}-u{id}-{pos}" rel="tooltip" title="nach unten verschieben"><i style="color:#C64F00;" class="fa fa-long-arrow-down"></i></a>
-</td>
-</tr>
-{EXPLODE}
-</table>
-</div></div>
+                        <td></td>
+                    </tr>
+                    {EXPLODE}
+                    <tr>
+                        <td>{name} <small style="color:#707070;">{version}</small></td>
+                        <td class="text-right">
+                            <a style="margin-right:4px;" href="?archiv-downloads-e{id}#edit" rel="tooltip" title="&auml;ndern"><i style="color:#2D9600;" class="fa fa-pencil-square-o"></i></a>
+                            <a style="margin-right:4px;" href="javascript:del('{id}')" rel="tooltip" title="l&ouml;schen"><i style="color:#AD0000;" class="fa fa-trash-o"></i></a>
+                            <a style="margin-right:4px;" href="?archiv-downloads-S{cat}-o{id}-{pos}" rel="tooltip" title="nach oben verschieben"><i style="color:#C64F00;" class="fa fa-long-arrow-up"></i></a>
+                            <a href="?archiv-downloads-S{cat}-u{id}-{pos}" rel="tooltip" title="nach unten verschieben"><i style="color:#C64F00;" class="fa fa-long-arrow-down"></i></a>
+                        </td>
+                    </tr>
+                    {EXPLODE}
+                </table>
+            </div>
+        </div>
 
 
-</div><div class="col-md-6">
+    </div>
 
-<table class="table">
-  <tr class="active">
-		<td colspan="5"><b>Kategorien</b></td>
-  </tr>{frei}<tr class="Cmite">
-    <td><a href="?archiv-downloads-S0">Keine</a></td>
-    <td></td>
-  </tr>{EXPLODE}
-</table>
-<br>
-<a href="#" name="edit"></a>
-<div class="panel panel-default" style="background-color:#EFEFEF;">
-  <div class="panel-body">
-<form action="admin.php?archiv-downloads" method="POST" name="form" role="form">
-	<input type="hidden" name="pkey" value="{pkey}">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="table">
+                    <tr class="active">
+                        <td colspan="5"><b>Kategorien</b></td>
+                    </tr>{frei}<tr class="Cmite">
+                        <td><a href="?archiv-downloads-S0">Keine</a></td>
+                        <td></td>
+                    </tr>{EXPLODE}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <b>Downloads</b> <small class="pull-right">eintragen / &auml;ndern</small>
+            </div>
+            <div class="panel-body">
+                <form action="admin.php?archiv-downloads" method="POST" name="form" role="form">
+                    <input type="hidden" name="pkey" value="{pkey}">
 
-<legend>Downloads<small style="float:right;font-size:10px;">eintragen / &auml;ndern</small></legend>
- <div class="form-group">
-    <label>Name</label>
-    <input class="form-control" type="text" name="name" value="{name}">
-  </div>
- <div class="form-group">
-    <label>Version</label>
-    <input class="form-control" type="text" name="version" value="{version}">
-  </div>
- <div class="form-group">
-    <label>Kategorie</label>
-    <select class="form-control" name="cat">{cat}</select>
-  </div>
- <div class="form-group">
-    <label>Autor</label>
-    <input class="form-control" type="text" name="creater" value="{creater}">
-  </div>
- <div class="form-group">
-    <label>URL</label>
-    <input class="form-control" type="text" name="newurl" value="{newurl}"><input class="btn btn-primary" type="button" value="Verwalten" title="Files verwalten" onClick="javascript:openFiles()">
-  </div>
- <div class="form-group">
-    <label>Screenshot Url</label>
-    <input class="form-control" type="text" name="surl" value="{surl}">
-  </div>
- <div class="form-group">
-    <label>Vorschau Url</label>
-    <input class="form-control" type="text" name="ssurl" value="{ssurl}">
-  </div>
- <div class="form-group">
-    <label>Vorschau Text</label>
-    <input class="form-control" type="text" name="desc" value="{desc}">
-  </div>
- <div class="form-group">
-    <label>Text lang</label>
-    <textarea class="form-control" rows="5" name="descl">{descl}</textarea>
-  </div>
- <div class="form-group">
-    <label></label>
-    <input class="btn btn-primary" type="submit" value="Absenden" name="sub"> {datum}
-  </div>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input class="form-control" type="text" name="name" value="{name}">
+                    </div>
+                    <div class="form-group">
+                        <label>Version</label>
+                        <input class="form-control" type="text" name="version" value="{version}">
+                    </div>
+                    <div class="form-group">
+                        <label>Kategorie</label>
+                        <select class="form-control" name="cat">{cat}</select>
+                    </div>
+                    <div class="form-group">
+                        <label>Autor</label>
+                        <input class="form-control" type="text" name="creater" value="{creater}">
+                    </div>
+                    <div class="form-group">
+                        <label>URL</label>
+                        <div class="input-group">
+                            <input class="form-control" type="text" name="newurl" value="{newurl}">
+                            <span class="input-group-btn">
+                                <input class="btn btn-primary" type="button" value="Verwalten" title="Files verwalten" onClick="javascript:openFiles()">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Screenshot Url</label>
+                        <input class="form-control" type="text" name="surl" value="{surl}">
+                    </div>
+                    <div class="form-group">
+                        <label>Vorschau Url</label>
+                        <input class="form-control" type="text" name="ssurl" value="{ssurl}">
+                    </div>
+                    <div class="form-group">
+                        <label>Vorschau Text</label>
+                        <input class="form-control" type="text" name="desc" value="{desc}">
+                    </div>
+                    <div class="form-group">
+                        <label>Text lang</label>
+                        <textarea class="form-control" rows="5" name="descl">{descl}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-primary" type="submit" value="Absenden" name="sub"> {datum}
+                    </div>
 
-</form>
-</div></div>
-<form action="admin.php?archiv-downloads" method="POST" role="form">
-	<input type="hidden" name="Cpkey" value="{Cpkey}">
+                </form>
+            </div>
+        </div>
+    </div>
 
-<legend>Download Kategorien<small style="float:right;font-size:10px;">erstellen / &auml;ndern</small></legend>
+    <div class="col-md-6">
+        <a href="#" name="edit"></a>
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <b>Kategorien</b> <small class="pull-right">eintragen / &auml;ndern</small>
+            </div>
+            <div class="panel-body">
+                <form action="admin.php?archiv-downloads" method="POST" role="form">
+                    <input type="hidden" name="Cpkey" value="{Cpkey}">
 
- <div class="form-group">
-    <label>Kategorie</label>
-<select class="form-control" name="Ccat">{Ccat}</select>
-  </div>
- <div class="form-group">
-    <label>Sichtbar ab</label>
-<select class="form-control" name="Crecht">{Crecht}</select>
-  </div>
- <div class="form-group">
-    <label>Name</label>
-    <input class="form-control" type="text" name="Cname" value="{Cname}">
-  </div>
- <div class="form-group">
-    <label>Text</label>
-    <textarea class="form-control" rows="3" name="Cdesc">{Cdesc}</textarea>
-  </div>
- <div class="form-group">
-    <label></label>
-    <input class="btn btn-primary" type="submit" value="Absenden" name="Csub" >
-  </div>
-</form>
+                    <div class="form-group">
+                        <label>Kategorie</label>
+                        <select class="form-control" name="Ccat">{Ccat}</select>
+                    </div>
+                    <div class="form-group">
+                        <label>Sichtbar ab</label>
+                        <select class="form-control" name="Crecht">{Crecht}</select>
+                    </div>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input class="form-control" type="text" name="Cname" value="{Cname}">
+                    </div>
+                    <div class="form-group">
+                        <label>Text</label>
+                        <textarea class="form-control" rows="3" name="Cdesc">{Cdesc}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-primary" type="submit" value="Absenden" name="Csub" >
+                    </div>
+                </form>
+            </div>
+        </div>
 
-</div></div>
+    </div>
+</div>
 <script language="JavaScript" type="text/javascript">
 <!--
-  function openFiles () {
-    var val     = document.form.newurl.value;
-    var furl    = 'admin.php?archiv-downloads-upload=0&f=' + val;
-    var fname   = 'openfiles';
-    var foption = 'scrollbars=yes,resizable=yes,height=400,width=550,left=300,top=50';
-    var Fenster = window.open (furl, fname, foption);
-    Fenster.focus();
-  }
-  
-  function Kdel ( id1 ) {
-	
-    var x = confirm ( "do you really want to delete?" );
-		if ( x ) {
-		  document.location.href="?archiv-downloads-D"+id1;
-		}
-	}
-  function del ( id1 ) {
-    var x = confirm ( "do you really want to delete?" );
-		if ( x ) {
-		  document.location.href="?archiv-downloads-d"+id1;
-		}
-	}
-  
+    function openFiles() {
+        var val = document.form.newurl.value;
+        var furl = 'admin.php?archiv-downloads-upload=0&f=' + val;
+        var fname = 'openfiles';
+        var foption = 'scrollbars=yes,resizable=yes,height=400,width=550,left=300,top=50';
+        var Fenster = window.open(furl, fname, foption);
+        Fenster.focus();
+    }
+
+    function Kdel(id1) {
+
+        var x = confirm("do you really want to delete?");
+        if (x) {
+            document.location.href = "?archiv-downloads-D" + id1;
+        }
+    }
+    function del(id1) {
+        var x = confirm("do you really want to delete?");
+        if (x) {
+            document.location.href = "?archiv-downloads-d" + id1;
+        }
+    }
+
 //-->
 </script>
 
 <div class="alert alert-info" role="alert">
-Hier k&ouml;nnen Sie Dateien eintragen und Verwalten. Ausserdem k&ouml;nnen Sie hier die Kategorien der Dateien verwalten.</br>
-Es werden alle Dateien einer Kategorie angezeigt, um Dateien einer Kategorie an zu zeigen bitte einfach Links auf den Namen der Kategorie klicken.
+    Hier k&ouml;nnen Sie Dateien eintragen und Verwalten. Ausserdem k&ouml;nnen Sie hier die Kategorien der Dateien verwalten.</br>
+    Es werden alle Dateien einer Kategorie angezeigt, um Dateien einer Kategorie an zu zeigen bitte einfach Links auf den Namen der Kategorie klicken.
 </div>
